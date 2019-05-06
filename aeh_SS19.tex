@@ -16,7 +16,6 @@
 
 %%%%%%extra stuff%%%%%%%%%
 \usepackage{tikz}
-\usepackage{tikzscale}
 \usepackage{pgfplots}
 \usetikzlibrary{arrows.meta}
 \usetikzlibrary{plotmarks}
@@ -24,10 +23,15 @@
 \pgfplotsset{compat=1.5.1}
 \usepackage[list=false]{subcaption}
 \usepackage[export]{adjustbox}
+\usetikzlibrary{positioning}
+\usepackage{tikzscale}
 
 %paragraphs
 \newcommand{\properparagraph}[1]{\paragraph{#1}\mbox{}\\}
 \usepackage[parfill]{parskip}
+
+%floats
+\usepackage{float}
 
 \begin{document}
   \pagestyle{empty}
@@ -136,7 +140,10 @@ Zwei besondere Ausprägungen dynamischer Systeme betrachtet:
 
 \underline{Dynamisches System}
 
-%TODO Abb.
+\begin{figure}[H]
+	\centering
+	\resizebox{!}{!}{\includegraphics[width=\textwidth]{img/2019_04_29_Abb5.tikz}}
+\end{figure}
 
 \properparagraph{Inhalte der Vorlesung}
 
@@ -158,7 +165,7 @@ Zwei besondere Ausprägungen dynamischer Systeme betrachtet:
 \subsection{Beispiel: gesteuerter Chargenprozess}
 Prozessgeführte Ablaufsteuerung (Struktur siehe \textit{BB. AEH 1-6})
 
-Prinzip: Einfüllen - Heizen - Entleeren einer Produktmenge(=Charge) [Füllhöhe $h$, Temperatur $\vartheta$]
+Prinzip: Einfüllen - Heizen - Entleeren einer Produktmenge(=Charge) [Füllhöhe $h$, Temperatur $\vartheta$] mittels der Stellgrößen [Ein- und Auslassventile $v_1$, $v_2$, Heizung $H$] durch eine diskrete Steuerung.
 
 
 
