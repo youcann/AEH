@@ -25,6 +25,7 @@
 \usepackage[export]{adjustbox}
 \usetikzlibrary{positioning}
 \usepackage{tikzscale}
+\usepackage{tabularx}
 
 %paragraphs
 \newcommand{\properparagraph}[1]{\paragraph{#1}\mbox{}\\}
@@ -61,6 +62,9 @@
   \tableofcontents
 \newpage
   \pagestyle{headings}
+  
+  
+  
 
 %Vorlesung vom 29.04.19
 \section*{Vorbemerkungen}
@@ -166,6 +170,151 @@ Zwei besondere Ausprägungen dynamischer Systeme betrachtet:
 Prozessgeführte Ablaufsteuerung (Struktur siehe \textit{BB. AEH 1-6})
 
 Prinzip: Einfüllen - Heizen - Entleeren einer Produktmenge(=Charge) [Füllhöhe $h$, Temperatur $\vartheta$] mittels der Stellgrößen [Ein- und Auslassventile $v_1$, $v_2$, Heizung $H$] durch eine diskrete Steuerung.
+
+
+%Vorlesung vom 06.05.19
+\section{Modelltypen und Beschreibungsformen ereignisdiskreter Systeme}
+
+\underline{Ereignisdiskrete Systeme (DES)}
+
+diskreter, abzählbarer Zustandsraum ohne natürliche Ordnung der Zustände.
+\begin{itemize}
+	\item kein Abstandsmaß für eine eventuelle differentielle/integrale Betrachtung
+	\item Analyse und Synthese meist auf Suchalgorithmen basierend (Problem: kombinatorische Explosion)
+\end{itemize}
+
+\underline{Übersicht über Modelltypen und Beschreibungsformen}
+
+(s. \textit{BB. AEH 2-1})
+
+\properparagraph{Übergangsverhalten: beschreibt Zustandsübergänge}
+%TODO Abb.
+
+\properparagraph{Zeitverhalten: beschreibt Zeitabhängigkeit der Zustandsübergänge}
+%TODO Abb.
+
+\underline{hier:}
+
+\begin{itemize}
+	\item Automaten, Petri-Netze, NCE-Systeme
+	\item Formale Sprachen, Max-Plus-Algebra
+\end{itemize}
+
+\subsection{Automaten und formale Sprachen}
+\begin{itemize}
+	\item zu Grundlagen der theoretischen Informatik gehörig
+	\item älteste DEM-Modellierung (seit 1943)
+\end{itemize}
+
+\subsubsection{Automaten}
+\underline{hier:} endliche Automaten betrachtet. (Def s. \textit{BB. AEH 2-2})
+
+\properparagraph{Repräsentation}
+\begin{itemize}
+	\item Automatentafel (Transitionstafel)
+	\smash{\raisebox{-.5\dimexpr1\baselineskip+4\itemsep+2\parskip}{$\left.\rule{0pt}{.5\dimexpr2\baselineskip+3\itemsep+3\parskip}\right\}\text{(s. \textit{BB AEH 2-2})}$}} 
+	\item Automatengraph 
+\end{itemize}
+
+\underline{Beispiel: } Mealy-Automat (s. \textit{BB AEH 2-5})
+
+\subsubsection{Formale Sprachen}
+formales Beschreibungsmittel für DES
+
+\properparagraph{Grundbegriffe}
+(s. \textit{BB AEH-2-3})
+
+\underline{Beispiel:}
+\begin{equation}
+	\underbrace{E}_\text{Alphabet} = \{\underbrace{e_1, e_2, e_3}_\text{Symbole}\}
+\end{equation}
+
+\begin{equation}
+\text{Wörter}\left\{
+\begin{aligned}
+s_1 &= e_2 \\
+s_2 &= e_1 e_2 \\
+\end{aligned}
+\right.
+\end{equation}
+
+\begin{equation}
+	L_1(E) = \{s_1, s_2\} = \{e_1, e_1 e_3\} 
+\end{equation}
+
+\begin{equation}
+	L_2(E) = \{ \text{Alle Wörter der Länge } n \}
+\end{equation}
+
+\begin{equation}
+	L_1^{\ast}(E) = \{ \underbrace{\epsilon}_\text{leeres Wort}, e_2, e_1 e_3, e_2 e_2, e_2 e_1 e_3, e_1 e_3 e_1 e_3, \ldots \}
+\end{equation}
+
+\properparagraph{Zusammenhang mit den endlichen Automaten}
+Reguläre Sprachen: (s. \textit{BB AEH 2-4})
+
+es gilt: jede reguläre Sprache kann von einem endlichen Automaten repräsentiert werden.
+
+\underline{Beispiel:} $L(E) = \{e_1^{\ast} e_2\}$
+
+%TODO Abb.
+
+analog: für jeden endlichen Automaten $A$ gibt es eine spezifische reguläre Sprache $L_A$, die er akzeptiert. (s. \textit{BB AEH 2-4})
+
+\underline{Beispiel: } Mealy-Automat (auf \textit{BB AEH 2-5})
+\begin{equation}
+	L_A = \{ (e_3^{\ast}(e_1 (e_2 e_3)^{\ast} e_1 e_2)^{\ast})^{\ast} \}
+\end{equation}
+(s. \textit{BB AEH 2-5})
+
+\underline{in Vorlesung: } Petri-Netze als Alternative DES-Modelle fokussiert.
+
+\subsection{Petri-Netze}
+\textsc{Karl-Adam Petri}: \textit{"Kommunikation mit Automaten"} (1926)
+
+\underline{$\overbrace{\text{Petri-Netz}}^{\text{PN}}\text{-Darstellung}$}
+
+\begin{itemize}
+	\item \textbf{grafisch:} diputtdftdt gerichteter Graph (mit Zustandskennzeichnung)
+	\item \textbf{algebraisch:} Netzmatrix $N$\footnote{Führt auf algebraische Gleichung für die Dynamik} (nur PN-Struktur) 
+\end{itemize}
+
+\subsubsection{Netztopologie}
+
+\underline{PN-Elemente} (s. \textit{BB AEH 2-6})
+
+\begin{tabularx}{0.9\linewidth}{p{2.1cm}p{0.1cm}X}
+	Stellen & $\mathrel{\hat{=}}$ & Zustände \\
+	Transitionen & $\mathrel{\hat{=}}$ & Ereignisse \\
+	Kanten & $\mathrel{\hat{=}}$ & kausale Zusammenhänge \\
+	Marken & $\mathrel{\hat{=}}$ & Kennzeichnung des aktuellen Zustands, Dynamik durch Netzparameter festgelegt \\
+\end{tabularx}
+
+\underline{Beispiel:}
+
+\begin{equation}
+	S = \{ s_1, s_2 \}
+\end{equation}
+\begin{equation}
+	T = \{ t_1, t_2 \}
+\end{equation}
+\begin{equation}
+	F = F_{pre} \cup F_{post} = \{ (s_1, t_1), (s_2,t_2) \} \cup \{(t_1, s_2), (t_2, s_1) \}
+\end{equation}
+\begin{equation}
+	K:\; K(s_1)=1, \qquad K(s_2)=2
+\end{equation}
+\begin{equation}
+	W:\; W(s_1,t_1)=1, \qquad W(t_1,s_2)=2, \qquad W(s_2,t_2)=2, \qquad W(t_2,s_1)=1
+\end{equation}
+\begin{equation}
+	M_0:\; M_0(s_1)=1, \qquad M_0(s_2)=0
+\end{equation}
+
+für Dynamik (siehe 2.2.2 dgdfgdf) Kennzeichnung von bestimmten PN-Bereichen sinnvoll (s. \textit{BB AEH 2-7})
+
+\underline{Beispiel: }
+%TODO Abb.
 
 
 
