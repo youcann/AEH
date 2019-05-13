@@ -292,30 +292,111 @@ analog: für jeden endlichen Automaten $A$ gibt es eine spezifische reguläre Sp
 
 \underline{Beispiel:}
 
-\begin{equation}
-	S = \{ s_1, s_2 \}
-\end{equation}
-\begin{equation}
-	T = \{ t_1, t_2 \}
-\end{equation}
-\begin{equation}
-	F = F_{pre} \cup F_{post} = \{ (s_1, t_1), (s_2,t_2) \} \cup \{(t_1, s_2), (t_2, s_1) \}
-\end{equation}
-\begin{equation}
-	K:\; K(s_1)=1, \qquad K(s_2)=2
-\end{equation}
-\begin{equation}
-	W:\; W(s_1,t_1)=1, \qquad W(t_1,s_2)=2, \qquad W(s_2,t_2)=2, \qquad W(t_2,s_1)=1
-\end{equation}
-\begin{equation}
-	M_0:\; M_0(s_1)=1, \qquad M_0(s_2)=0
-\end{equation}
 
-für Dynamik (siehe 2.2.2 dgdfgdf) Kennzeichnung von bestimmten PN-Bereichen sinnvoll (s. \textit{BB AEH 2-7})
+\begin{subequations}
+	\begin{align}
+	S &= \{ s_1, s_2 \} \\
+	T &= \{ t_1, t_2 \} \\
+	F &= F_{pre} \cup F_{post} = \{ (s_1, t_1), (s_2,t_2) \} \cup \{(t_1, s_2), (t_2, s_1) \} \\
+	K&:\; K(s_1)=1, \qquad K(s_2)=2 \\
+	W&:\; W(s_1,t_1)=1, \qquad W(t_1,s_2)=2, \qquad W(s_2,t_2)=2, \qquad W(t_2,s_1)=1 \\
+	M_0&:\; M_0(s_1)=1, \qquad M_0(s_2)=0
+	\end{align}
+\end{subequations}
+
+
+für Dynamik (siehe Abschnitt~\ref{sec:netzdynamik}) Kennzeichnung von bestimmten PN-Bereichen sinnvoll (s. \textit{BB AEH 2-7})
 
 \underline{Beispiel: }
 %TODO Abb.
 
+%Vorlesung vom 13.05.19
+
+\subsubsection{Netzdynamik} \label{sec:netzdynamik}
+$\hat{=}$ Markenfluss im PN, bewirkt durch \textit{Schaltvorgänge} aktivierter Transitionen (s. \textit{BB AEH 2-8})
+
+\properparagraph{Beispiel}
+%TODO Abbn.
+
+\properparagraph{Konfliktlösung (mittels Zusatzwissen)}
+\begin{itemize}
+	\item zusätzliche bool'sche Bedingung an den Transitionen
+	\item Kantenzeitbewertung (siehe später)
+	\item alternierendes Schalten
+	\item Zufallsauswahl
+\end{itemize}
+
+\properparagraph{Demo: DESSKA}
+%TODO Abb.
+
+\subsubsection{Netzklassen}
+\underline{Netzklassen:} Netz mit bestimmten (beschränkten) Eigenschaften zur Abbildung der jeweils charakteristischen dynamischen Abläufe (Beschränkung vorteilhaft für die Analyse/Synthese).
+
+Klassifizierung nach:
+\begin{itemize}
+	\item Struktureigenschaften
+	\item Stellen-/Kanteneigenschaften 
+	\smash{\raisebox{.5\dimexpr1\baselineskip+4\itemsep+2\parskip}{$\left.\rule{0pt}{.5\dimexpr2\baselineskip+3\itemsep+3\parskip}\right\}\text{(s. \textit{BB AEH 2-9 und AEH 2-10})}$}} 
+\end{itemize}
+
+\properparagraph{Erläuterungen Struktureigenschaften}
+\begin{itemize}
+	\item \textbf{\underline{Reines PN}}
+	
+	Schleifen verboten
+	%TODO Abb.
+	
+	\item \textbf{\underline{Zustandsmaschine (ZM)}}
+	
+	\underline{Beispiel:}
+	%TODO Abb.
+	
+	Kennzeichen:
+	\begin{itemize}
+		\item Abbildung alternativer Abläufe
+		\item Markenzahl in ZM konstant
+		\item Markenanzahl:
+		\begin{itemize}
+			\item mehrere Marken: Nebenläufigkeit darstellbar (aber: $\forall s_i: K(s_i)>1$ erforderlich)
+			\item genau eine Marke: ZM $\hat{=}$ Automatengraph
+		\end{itemize}
+	\end{itemize}
+
+	\item \underline{Synchronisationsgraph (SG)} (s. \textit{BB AEH 2-10})
+	
+	\underline{Beispiel:}
+	%TODO Abb.
+	
+	Kennzeichen:
+	\begin{itemize}
+		\item Modellierung von Nebenläufigkeit
+		\item keine Alternativen abbildbar (dadurch konfliktfrei)
+		\item Markenzahl nicht konstant
+	\end{itemize}
+
+	\item \underline{Free-Choice-Netze (FC-Netz)} (s. \textit{BB AEH 2-10})
+	
+	Kennzeichen:
+	\begin{itemize}
+		\item Kombination von ZM- und SG-Strukturen \newline ($\Rightarrow$ ZM $\subset$ FC-Netz, SG $\subset$ FC-Netz)
+		\item bei Alternativen ist nur der Ausgangszustand (Konfliktstelle) betroffen, kein Einfluss anderer Zustände (Stellen)
+	\end{itemize}
+\end{itemize}
+
+\properparagraph{Anmerkungen}
+\begin{enumerate}
+	\item Erweiterung des FC-Netz: \underline{Extended Free-Choice-Netz (EFC-Netz)}
+	
+	gegenseitig bedingte Alternativen zulässig
+	%TODO Abb.
+	
+	\item allgemeinstes PN: \underline{Stellen/Transitionen-Netz (S/T-Netz)}
+	
+	Alle Struktur- und Knoten/Kanteneigenschaften erlaubt (demzufolge alle übrigen Netzklassen).
+\end{enumerate}
+
+\properparagraph{Beispiele}
+%TODO Abb.
 
 
 
