@@ -2,8 +2,8 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[ngerman]{babel}
-
 \usepackage[pdftex]{graphicx}
+
 \usepackage{latexsym}
 \usepackage{amsmath,amssymb,amsthm}
 
@@ -16,6 +16,7 @@
 
 %%%%%%extra stuff%%%%%%%%%
 \usepackage{tikz}
+\usepackage{tikzscale}
 \usepackage{pgfplots}
 \usetikzlibrary{arrows.meta}
 \usetikzlibrary{plotmarks}
@@ -24,8 +25,9 @@
 \usepackage[list=false]{subcaption}
 \usepackage[export]{adjustbox}
 \usetikzlibrary{positioning}
-\usepackage{tikzscale}
+\usetikzlibrary{positioning,fit,backgrounds,arrows,shapes,automata,petri,calc,bending}
 \usepackage{tabularx}
+
 
 %paragraphs
 \newcommand{\properparagraph}[1]{\paragraph{#1}\mbox{}\\}
@@ -33,6 +35,12 @@
 
 %floats
 \usepackage{float}
+
+%kluwe-specific specials
+\newcommand{\beispiel}{\underline{Beispiel:~}}
+\usepackage{accents}
+\newcommand{\ubar}[1]{\underaccent{\bar}{#1}}
+\newcommand\m[1]{\begin{bmatrix}#1\end{bmatrix}}
 
 \begin{document}
   \pagestyle{empty}
@@ -397,6 +405,99 @@ Klassifizierung nach:
 
 \properparagraph{Beispiele}
 %TODO Abb.
+
+%VL am 20.05.19
+
+\subsubsection{Algebraische Netzbeschreibung}
+Basis für die PN-Darstellung in Rechner und die PN-Analyse(s. Kapitel 4).
+
+\underline{Begriffe:} (s. BB AEH2-11, AEH2-12)
+
+\beispiel
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=5cm]{img/2019_05_20/abb1.tikz}
+\end{figure}
+
+\begin{subequations}
+	\begin{align}
+	\ubar{K}   &= \begin{bmatrix}10\\2\end{bmatrix} \\
+	\ubar{t}_1 &= \begin{bmatrix}3\\-1\end{bmatrix}\\
+	\ubar{t}_2 &= \begin{bmatrix}-1\\2\end{bmatrix}\\
+	\ubar{N}   &= \begin{bmatrix}t_1 & t_2\end{bmatrix} = \begin{bmatrix}3 & -1 \\ -1 & 2\end{bmatrix}\\
+	\ubar{m}_0 &= \begin{bmatrix}1 \\ 0\end{bmatrix}
+	\end{align}
+\end{subequations}
+
+Schaltvoraussetzung:
+\begin{subequations}
+	\begin{align}
+	t_1 &: 0 \le \underbrace{\m{1\\0}+\m{3\\-1}}_{\m{4\\-1}} \le \m{10\\2}\\[2ex]
+	t_2 &: 0 \le \underbrace{\m{1\\0}+\m{1\\2}}_{\m{0\\2}} \le \m{10\\2}
+	\end{align}
+\end{subequations}
+
+Schaltvektor: $t_2$ aktiviert $\Rightarrow \ubar{v}(1)=\m{0\\1}$
+
+Folgemarkierung: $\ubar{m}(1)=\ubar{m}(0) + \ubar{N} \ubar{v}(1) = \m{1\\0}+\m{3&-1\\-1&2} \m{0\\1} = \m{0\\2}$
+
+(weitere Schaltvorgänge analog)
+
+\subsubsection{Darstellung von Nebenläufigkeit}
+Untersuchung der Modellierungstransparenz bei Nebenläufigkeiten: PN $\leftrightarrow$ Automat.
+
+\beispiel Zwei Prozesse
+
+\begin{tabular}{l|l|l}
+	 & Zustände & Ereignisse \\
+	 \hline
+	 $P_1$ & $z_1,z_2,z_3$ & $e_1,e_2,e_3$ \\
+	 \hline
+	 $P_2$ & $z_4,z_5,z_6$ & $e_4,e_5,e_6$ 
+\end{tabular}
+
+Nebenläufigkeiten: 
+\begin{itemize}
+	\item asynchron: Ereignisse treten unabhängig voneinander auf
+	\item hier: $e_3$ und $e_6$ treten gleichzeitig auf
+\end{itemize}
+
+Vergleich: lokaler(getrennter) und globaler Automatengraph mit PNen (s. BB AEH 2-13)
+
+Fazit: PN aufgrund der verteilten Zustandsinformation (Markierung) und den transparenten Strukturen (bei synchronisierten Nebenläufigkeiten) kompakter und übersichtlicher.
+
+\subsubsection{Zeitbewertung}
+Bei PN erforderlich, falls neben kausalen Ablauf auch zeitlicher Zusammenhang relevant. 
+
+Prinzip: (s. BB AEH 2-14)\\
+(Sonderfall: Ereignisse nicht zeitbewertet: $\tau_R=0$, $\tau_L=\infty$)
+
+\beispiel Kleben von Teilen
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[]{img/2019_05_20/abb3.tikz}
+\end{figure}
+
+Weitere Beispiele (s. BB AEH 2-15)
+
+\subsubsection{Test- und Inhibitorkanten}
+Spezielle Kanten zur Einbringung zusätzlicher Bedingungen in die Dynamik ohne Markenfluss beim Schaltvorgang (s. BB AEH 2-16)
+
+\beispiel Synchronisation ansonsten unabhängiger Prozesse
+\begin{figure}[H]
+	\centering
+	\includegraphics[]{img/2019_05_20/abb4.tikz}
+\end{figure}
+
+$t_4$ immer erst nach dem Schalten von $t_3$ und $t_2$ aktiviert.
+
+Vorteil: Übersichtliche Darstellung\\
+Nachteil: Analyse erschwert
+
+\subsection{Netz - Condition/Event - Systeme}
+\underline{PN-Schwächen:}
 
 
 

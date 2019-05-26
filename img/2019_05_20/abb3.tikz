@@ -1,0 +1,38 @@
+\usetikzlibrary{positioning,fit,backgrounds,arrows,shapes,automata,petri,calc,bending}
+\tikzset{
+    place/.style={
+        circle,
+        thick,
+        minimum size=6mm,
+                draw
+    },
+    transitionV/.style={
+        rectangle,
+        thick,
+        fill=black,
+        minimum height=6mm,
+        inner xsep=1pt
+    }
+}
+\begin{tikzpicture}[]
+%\draw[gray!30] (0,-3) grid (12,3);
+%\node[gray!50] at (0,0) {0};
+
+\node [place,tokens=0,label=above:$\text{Teil A}$] (p1) at (0,1){};
+\node [place,tokens=0,label=below:$\text{Teil B}$] (p2) at (0,-1){};
+\node at (0,0) {Kleberauftrag};
+\node [transitionV,label=above:$$] (t1) at (1.5,1){};
+\node [transitionV,label=above:$$] (t2) at (1.5,-1){};
+
+\node [place,tokens=0,label={below:$K = 2$},label={above:$\text{Kleben}$}] (p3) at (4,0){};
+\node [transitionV,label=above:$$] (t3) at (6,0){};
+\node [place,tokens=0,label={right:$\text{Folgebearbeitung}$}] (p4) at (7.5,0){};
+
+\draw (p1) edge[,->] node[below] {$[3,10]$} (t1);
+\draw (p2) edge[,->] node[above] {$[3,10]$}(t2);
+\draw (t1) edge[out=0, in=150,->] (p3);
+\draw (t2) edge[out=0, in=210,->] (p3);
+\draw (p3) edge[,->] node[above] {$[3,20]$} node[below] {$2$}(t3);
+\draw (t3) edge[,->] (p4);
+
+\end{tikzpicture}

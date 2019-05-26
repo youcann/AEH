@@ -1,0 +1,47 @@
+\usetikzlibrary{positioning,fit,backgrounds,arrows,shapes,automata,petri,calc,bending}
+\tikzset{
+    place/.style={
+        circle,
+        thick,
+        minimum size=6mm,
+                draw
+    },
+    transitionV/.style={
+        rectangle,
+        thick,
+        fill=black,
+        minimum height=6mm,
+        inner xsep=1pt
+    }
+}
+\begin{tikzpicture}[]
+%\draw[gray!30] (0,-3) grid (12,3);
+%\node[gray!50] at (0,0) {0};
+
+\node [place,tokens=0,label=above:$$] (s1) at (0,0){};
+\node [place,tokens=1,label=above:$$] (s2) at (4,0){};
+\node [place,tokens=0,label=above:$$] (s3) at (8,0){};
+\node [place,tokens=1,label=above:$$] (s4) at (2,-3){};
+\node [place,tokens=0,label=above:$$] (s5) at (6,-3){};
+
+\node [transitionV,label=above:$t_1$] (t1) at (4,3){};
+\node [transitionV,label=above:$t_2$] (t2) at (2,0){};
+\node [transitionV,label=above:$t_3$] (t3) at (6,0){};
+\node [transitionV,label=above:$t_4$] (t4) at (4,-3){};
+\node [transitionV,label=above:$t_5$] (t5) at (4,-5){};
+
+\draw (t1) edge[,->,out=180,in=90]  (s1);
+\draw (s3) edge[,->,out=80,in=0]  (t1);
+\draw (s1) edge[,->,out=0,in=180]  (t2);
+\draw (t2) edge[,->,out=0,in=180]  (s2);
+\draw (s2) edge[,->,out=0,in=180]  (t3);
+\draw (t3) edge[,->,out=0,in=180]  (s3);
+
+\draw (s4) edge[,->,out=0,in=180]  (t4);
+\draw (t4) edge[,->,out=0,in=180]  (s5);
+\draw (s5) edge[,->,out=-90,in=0]  (t5);
+\draw (t5) edge[,->,out=180,in=-90]  (s4);
+
+\draw (s2) edge[,-*,out=-150,in=170]  (t4.north west);
+
+\end{tikzpicture}

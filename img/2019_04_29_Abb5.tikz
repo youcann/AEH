@@ -1,0 +1,20 @@
+\begin{tikzpicture}[scale=1,transform shape]
+\begin{scope}[node distance=2cm and 1cm]
+\node[draw] (zustandsaenderung) at (0,0) {Zustandsänderung};
+
+\node[draw, below left = 3cm and 4cm of zustandsaenderung] (zeit) {Zeit-getrieben};
+\node[draw, below right = 3cm and 4cm of zustandsaenderung] (ereignis) {Ereignis-getrieben};
+
+\node[draw, below left = of zeit] (kont) {zeitkontinuierlich};
+\node[draw, below right = of zeit] (disk) {zeitdiskret};
+\node[draw, below left = of ereignis] (kontn) {Kontinuum an Zuständen};
+\node[draw, below right = of ereignis] (DES) {zeitlich diskret (DES)};
+
+\draw (zustandsaenderung) -- (zeit);
+\draw (zustandsaenderung) -- (ereignis);
+\draw (zeit) -- (kont);
+\draw (zeit) -- (disk);
+\draw (ereignis) -- (kontn);
+\draw (ereignis) -- (DES);
+\end{scope}
+\end{tikzpicture}
