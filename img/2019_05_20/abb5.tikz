@@ -1,0 +1,33 @@
+\usetikzlibrary{positioning,fit,backgrounds,arrows.meta,shapes,calc,bending}
+
+\begin{tikzpicture}[]
+%\draw[gray!30] (0,-3) grid (10,6);
+%\node[gray!50] at (0,0) {0};
+
+\coordinate (xmax) at (9,0);
+\coordinate (ymax) at (0,4);
+
+\draw[-Latex] (0,0) -- (xmax);
+\node[anchor=south west] (xlabel) at (xmax) {t};
+\node[anchor=south west] (ylabel) at (ymax) {};
+\draw[-Latex] (0,0) -- (ymax);
+
+\foreach \y/\name in {1.5/{$c_1=1$}, 3/{$c_2=1$}}
+	\draw (-0.1,\y) -- (0.1,\y) node[anchor=east, inner sep=10] {\name};
+
+\begin{scope}[shift={(1.5,0)}]
+	\draw (-1,0) -- (-1,1.5) --(1,1.5) -- (1,0);
+	\draw[fill=white] (1,1.5) circle [radius=0.1];
+\end{scope}
+\begin{scope}[shift={(4,0)}]
+	\draw (-1,0) -- (-1,3) --(1,3) -- (1,0);
+	\draw[fill=white] (1,2*1.5) circle [radius=0.1];
+\end{scope}
+\begin{scope}[shift={(7,0)}]
+	\draw (-1,0) -- (-1,3) --(1,3) -- (1,0);
+	\draw[fill=white] (1,2*1.5) circle [radius=0.1];
+\end{scope}
+
+\draw[dashed] (0.2,3) -- (2.8,3);
+
+\end{tikzpicture}

@@ -1,0 +1,18 @@
+\usetikzlibrary{positioning,fit,backgrounds,arrows.meta,shapes,calc,bending}
+
+\begin{tikzpicture}[]
+%\draw[gray!30] (0,-3) grid (10,6);
+%\node[gray!50] at (0,0) {0};
+
+\coordinate (xmax) at (9,0);
+\coordinate (ymax) at (0,4);
+
+\draw[-Latex] (0,0) -- (xmax);
+\node[anchor=south west] (xlabel) at (xmax) {t};
+\node[anchor=south west] (ylabel) at (ymax) {};
+\draw[-Latex] (0,0) -- (ymax);
+
+\foreach \x/\name in {2/{$e_1$},4/{$e_2$},6/{$e_3$}}
+	\draw[->,very thick] (\x,0) -- (\x,3) node[anchor=south] {\name};
+
+\end{tikzpicture}

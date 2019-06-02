@@ -1,0 +1,104 @@
+ 
+\section*{Vorbemerkungen}
+\begin{itemize}
+	\item Ilias: MaxPlus2019
+	\item Vorlesungsart: Tafel + Beiblätter
+	\item Prüfung: mündlich, Termine über das ganze Jahr möglich
+\end{itemize}
+
+\section{Einleitung}
+Grundaufgaben zur Steuerungs- und Regelungstechnik:
+\begin{itemize}
+	\item Prozessmodellierung
+	\item Analyse (Simulation)
+	\item Synthese von Regelungen und Steuerungen 
+\end{itemize}
+Grundlage: \underline{Systemtheorie}
+
+\subsection{Systemklassifikation}
+\begin{itemize}
+	\item Systemeinteilung nach den wesentlichen Prozessvorgängen möglich (\textit{BB. AEH 1-1})
+	\item Zuordnung Vorgänge - Prozesstypen (\textit{BB. AEH 1-2})
+	\item Vorraussetzung für sinnvolle Prozessbeschreibung
+\end{itemize}
+
+\subsubsection{Festlegung des Abstraktionsniveaus}
+Beispiele:
+
+\properparagraph{1) Aufzug}
+%TODO Abb
+
+\properparagraph{2) Tank}
+(\textit{BB. AEH 1-3})
+
+Abstraktion bedingt durch die AT-Aufgabe und/oder die Randbedingungen (z.B. Aktorik/Sensorik).
+
+Also: Modellierung kombiniert Aufgaben(Ziele) und Prozesswissen(Physik, Randbedingungen)
+
+\subsubsection{Wissensmodellierung und Verarbeitung}
+(\textit{BB. AEH 1-4})
+
+\subsection{Begriffsbestimmungen}
+Erforderlich zur Modellformalisierung
+
+zentrale Begriffe:
+\begin{itemize}
+	\item System 
+	\item Zustand
+	\item Ereignis 
+	\smash{\raisebox{.5\dimexpr2\baselineskip+4\itemsep+2\parskip}{$\left.\rule{0pt}{.5\dimexpr3\baselineskip+3\itemsep+3\parskip}\right\}\text{Dynamisches System}$}}
+\end{itemize}
+
+(\textit{BB. AEH 1-5})
+
+\properparagraph{Beispiel Tank (Dynamisches System)}
+
+%TODO Abb.
+
+\underline{Ereignisse}
+\begin{itemize}
+	\item \textbf{autonom}: (Größenänderung aufgrund interner Zustandsübergänge)
+	\item \textbf{gesteuert}: (Größenänderung aufgrund externer Stellsignale)
+\end{itemize}
+
+\properparagraph{Beispiel Zulaufventil}
+
+%TODO Abb.
+
+\underline{In dieser Vorlesung}
+
+Zwei besondere Ausprägungen dynamischer Systeme betrachtet:
+\begin{enumerate}
+	\item Ereignisdiskrete Systeme
+	\smash{\raisebox{-.5\dimexpr1\baselineskip+4\itemsep+2\parskip}{$\left.\rule{0pt}{.5\dimexpr2\baselineskip+3\itemsep+3\parskip}\right\}\text{Dynamisches System}$}} 
+	\item Hybride Systeme 
+\end{enumerate}
+
+\underline{Dynamisches System}
+
+\begin{figure}[H]
+	\centering
+	\resizebox{!}{!}{\includegraphics[width=\textwidth]{img/2019_04_29_Abb5.tikz}}
+\end{figure}
+
+\properparagraph{Inhalte der Vorlesung}
+
+\begin{itemize}
+	\item Ereignisdiskrete Systeme: 
+	\begin{itemize}
+		\item Modelltypen und Prozessmodellierung
+		\item Analyse und Simulation
+		\item Spezifikation und Synthese von Steuerungen
+	\end{itemize}
+	\item Hybride Systeme
+	\begin{itemize}
+		\item Modellierung
+		\item Simulation, Analyse, Steuerung
+	\end{itemize} 
+\end{itemize}
+
+
+\subsection{Beispiel: gesteuerter Chargenprozess}
+Prozessgeführte Ablaufsteuerung (Struktur siehe \textit{BB. AEH 1-6})
+
+Prinzip: Einfüllen - Heizen - Entleeren einer Produktmenge(=Charge) [Füllhöhe $h$, Temperatur $\vartheta$] mittels der Stellgrößen [Ein- und Auslassventile $v_1$, $v_2$, Heizung $H$] durch eine diskrete Steuerung.
