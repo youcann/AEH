@@ -1,0 +1,88 @@
+%TODO Bild E_N
+
+\properparagraph{Reversibilität:}
+Def.: \beiblatt{4-5} unten
+
+\underline{also}: je zwei Markierungen der Erreichbarkeitsmenge durch Schlatungsgrenzen ineinander überführbar.
+
+Bsp.: s. $E_N$ in Bild oben
+
+Petri-Netz nicht reversibel, da z.B. $M_1 = (1,1,0), M_2 = (0,2,0) \in R_N(M_0)$
+
+$M_2 \in R_N(M_1)$, aber $M_1\notin R_N(M_2)$ 
+
+\subsubsection{Lebendigkeit und Beschränktheit}
+\properparagraph{Lebendigkeit}
+Def.: \beiblatt{4-6}
+
+Auswirkungen toter Transitionen auf die Netzdynamik: \underline{Verklemmungen} \beiblatt{4-6}
+
+\textbf{Bsp.:} s. $E_N$ in Bild oben
+
+Markierung $M_2$: keine Transition aktiviert $\rightarrow$ tote Markierung $\rightarrow$ totale Verklemmung möglich
+
+\properparagraph{Beschränktheit}
+Def.: \beiblatt{4-6}
+
+\textbf{Bsp.:} s. $E_N$ in Bild oben
+
+alle Stellen 2-beschränkt bei $M_0$ $\rightarrow$ $N$ 2-beschränkt bei $M_0$ $\rightarrow$ $N$ nicht sicher 
+
+\subsection{Analyse von Petri-Netzen}
+\underline{bisher}: Definition von PN-Eigenschaften
+
+\underline{jetzt}: Methoden zur formalen Analyse von PNen
+
+\textbf{Zwei Analysearten}:
+
+\begin{enumerate}
+	\item{\textbf{graphentheoretische Analyse:}} erfolgt auf Basis des Erreichbarkeitsgraphen $E_N$ bzw. auf dessen Kondensation (s. später) 
+	
+	$\rightarrow$ notwendige und hinreichende Kriterien
+	
+	\item{\textbf{algebraische Analyse:}} erfolgt auf Basis der algebraischen Netzbeschreibung mittels sogenannter Netzunvarianten (s. später, im Prinzip Rückführung auf das Erreichbarkeitsproblem)
+	
+	$\rightarrow$ nur notwendige Kriterien
+\end{enumerate}
+
+\subsubsection{Graphentheoretische Analyse mit dem Erreichbarkeitsgraphen}
+\textbf{Anforderung:} Beschränktes PN
+
+\properparagraph{a) Unmittelbare Betrachtung von $E_N$}
+Analyse möglich auf 
+\begin{itemize}
+	\item{\textbf{Erreichbarkeit:}} \beiblatt{4-7}\\
+	anwendbare Schaltungsgrenzen $\equiv$ mögliche Pfade im $E_N$
+	\item{\textbf{Lebendigkeit:}} \subitem{-} \underline{tote Transitionen: }  \beiblatt{4-7}\newline
+ 	\subsubitem Bsp: %TODO Bild 2 
+	\subsubitem{a) $M_0 = (0,1,0,0)$}  %TODO Bild 3 + Farbe
+	$\rightarrow t_1$ tote Transitionen
+	\subsubitem{b) $M_0 = (1,0,0,0)$}  %TODO Bild 4 + Farbe
+	$\rightarrow$ $E_N$ mit neuem Knoten $\rightarrow$ $t_1$ nicht tot, aber $t_1$ auch nicht lebendig, da.....Rest wurde weggewischt %TODO drum kümmern, dass neue Zeile nicht so weit vorne anfängt
+	
+
+	
+	
+	\subitem{-} \underline{totale Verklemmung:} \beiblatt{4-7}\\
+	\item{\textbf{Konflikt:}} 
+	\subitem{-} möglich an Knoten (Markierungen) mit mehr als einer auslaufenden Kante
+	\subitem{-} tritt auf, wenn die auslaufenden Kanten der Folgeknoten nicht mehr mit den alternativen Transitionen beschriftet sind  %TODO drum kümmern, dass neue Zeile nicht so weit vorne anfängt
+	Bsp.: s. Bild 2, Markierung bei $S_1$
+	$\underline{m}_0^{T} = [1\, 0\, 0\,  1] \, , \, k(S_1) = 1$
+	%TODO Bild 5
+	
+	potentielle Konflikte: bei $\underline{m}_0$ (vorhanden) und $\underline{m}_4$ (nicht vorhanden)
+\end{itemize}
+
+
+\properparagraph{b) Genauere Analyse des $E_N$}
+Analyse des PNs möglich auf
+\begin{itemize}
+	\item{\textbf{Reversibilität}} \beiblatt{4-7} 
+	
+	\textbf{hierzu erforderlich}: Überprüfung des \underline{starken Zusammenhangs} bzw. der \underline{Kondensation} des $E_N$
+	
+	\textbf{graphentheoretische Grundlagen} (s. BB AEH 4-1 bis 4-4)
+	
+	
+\end{itemize}
