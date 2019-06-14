@@ -126,6 +126,57 @@ Analyse des PNs möglich auf
 		\centering
 		\includegraphics{img/2019_06_13/abb8.tikz}
 	\end{figure}
-	%TODO Bild 6 + Matrizen
 	
+	Adjazenzmatrix $A = \left( \begin{array}{rrrr}
+	0 & 0 & 0 & 0 \\
+	1 & 0 & 1 & 0 \\
+	1 & 0 & 0 & 1 \\
+	0 & 0 & 1 & 0 \\
+	\end{array}\right)$
+	
+	$
+	A^{2} = \left( \begin{array}{rrrr}
+	0 & 0 & 0 & 0 \\
+	1 & 0 & 0 & 1 \\
+	0 & 0 & 1 & 0 \\
+	1 & 0 & 0 & 1 \\
+	\end{array}\right)
+	A^{3} = \left( \begin{array}{rrrr}
+	0 & 0 & 0 & 0 \\
+	0 & 0 & 1 & 0 \\
+	1 & 0 & 0 & 0 \\
+	0 & 0 & 1 & 0 \\
+	\end{array}\right)
+	A^{4} = \left( \begin{array}{rrrr}
+	0 & 0 & 0 & 0 \\
+	1 & 0 & 0 & 1 \\
+	0 & 0 & 1 & 0 \\
+	1 & 0 & 0 & 1 \\
+	\end{array}\right)	
+	 $
+	 %TODO format
+
+Mehr als $A^{4}$ macht keinen Sinn, weil bei vier Knoten die maximale Pfadlänge 4 beträgt.
+
+\begin{equation}
+	A^{T} = A \cup A^{2} \cup A^{3} \cup A^{4} = 
+	\left( \begin{array}{rrrr}
+	0 & 0 & 0 & 0 \\
+	1 & 0 & 1 & 1 \\
+	1 & 0 & 1 & 1 \\
+	1 & 0 & 1 & 1 \\
+	\end{array}\right)
+\end{equation}
+
+Reflexiv transitive Hülle:
+
+\begin{equation}
+	A^{\ast} =
+	\left( \begin{array}{rrrr}
+	1 & 0 & 0 & 0 \\
+	1 & 1 & 1 & 1 \\
+	1 & 0 & 1 & 1 \\
+	1 & 0 & 1 & 1 \\
+	\end{array}\right)
+\end{equation}
 \end{itemize}
