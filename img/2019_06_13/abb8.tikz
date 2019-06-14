@@ -1,0 +1,17 @@
+\usetikzlibrary{positioning,fit,backgrounds,arrows,shapes,calc,bending}
+
+\begin{tikzpicture}[]
+\node (A) at (0,0) [circle,draw,align = center] {$1$};
+\node (B) [below right =0.5cm and 1.1cm of A,circle,draw, align=center] {$2$};
+\node (C) [right= 2.4 cmof A,circle,draw,align = center] {$3$};
+\node (D) [below = of B, circle,draw,align = center] {$4$};
+
+\draw[->,very thick, bend left] (B) to node[above] {} (A);
+\draw[->,very thick, bend right] (C) to node[above] {} (A);
+\draw[->,very thick, bend left] (C) to node[above] {} (B);
+\draw[->,very thick, bend left] (B) to node[right] {} (D);
+\draw[->,very thick,bend left] (D) to node[left] {} (B);
+%\draw[<->, thick] (A) to[out=45, in=135] (C);
+
+%\tikz[circle]{\node [draw] (s) {};\node [draw] (a) [right=of s] {} edge (s);\node [draw] (b) [right=of a] {} edge (a);\node [draw] (t) [right=of b] {} edge (b);}
+\end{tikzpicture}

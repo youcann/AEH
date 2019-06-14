@@ -1,0 +1,25 @@
+\usetikzlibrary{positioning,fit,backgrounds,arrows,shapes,calc,bending}
+
+\begin{tikzpicture}[]
+\node (A) at (0,0) [circle,draw,align = center] {$M_0$\\$(2,0,0)$};
+\node (B) [right=of A,circle,draw, align=center] {$M_1$\\$(1,1,0)$};
+\node (C) [right=of B,circle,draw,align = center] {$M_2$\\$(0,2,0)$};
+\node (D) [below = of A,circle,draw,align = center] {$M_3$\\$(1,0,1)$};
+\node (E) [below = of B,circle,draw,align = center] {$M_4$\\$(0,1,1)$};
+\node (F) [below = of D,circle,draw,align = center] {$M_4$\\$(0,0,2)$};
+
+\node (text) at (6, -6) {$E_N$};
+
+\draw[->,very thick] (A) to node[above] {$t_1$} (B);
+\draw[->,very thick, bend left] (A) to node[right] {$t_2$} (D);
+\draw[->,very thick,bend left] (D) to node[left] {$t_3$} (A);
+\draw[->,very thick, bend left] (B) to node[right] {$t_2$} (E);
+\draw[->,very thick,bend left] (E) to node[left] {$t_3$} (B);
+\draw[->, very thick] (B) to node[above] {$t_1$} (C);
+\draw[->, very thick] (D) to node[above] {$t_1$} (E);
+\draw[->,very thick, bend left] (D) to node[right] {$t_2$} (F);
+\draw[->,very thick,bend left] (F) to node[left] {$t_3$} (D);
+%\draw[<->, thick] (A) to[out=45, in=135] (C);
+
+%\tikz[circle]{\node [draw] (s) {};\node [draw] (a) [right=of s] {} edge (s);\node [draw] (b) [right=of a] {} edge (a);\node [draw] (t) [right=of b] {} edge (b);}
+\end{tikzpicture}

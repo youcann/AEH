@@ -1,0 +1,46 @@
+\usetikzlibrary{positioning,fit,backgrounds,arrows,shapes,automata,petri,calc,bending}
+\tikzset{
+    place/.style={
+        circle,
+        thick,
+        minimum size=6mm,
+                draw
+    },
+    transitionV/.style={
+        rectangle,
+        thick,
+        fill=black,
+        minimum height=6mm,
+        inner xsep=1pt
+    }
+}
+\begin{tikzpicture}[]
+%\draw[gray!30] (0,-3) grid (12,3);
+%\node[gray!50] at (0,0) {0};
+
+%\node [place,tokens=1,label={above:$s_1$},label={below:$K=10$}] (p1) at (2,2){};
+\node [place,tokens=0] (p1) at (0,0){$\underline{m}_0$};
+\node [below left = of p1, place, tokens=0] (p2) {$\underline{m}_1$};
+\node [below right = of p1, place, tokens=0] (p3) {$\underline{m}_2$};
+\node [below = of p2, place, tokens=0] (p4) {$\underline{m}_3$};
+\node [below = of p3, place, tokens=0] (p5) {$\underline{m}_4$};
+\node [below right = of p4, place, tokens=0] (p6) {$\underline{m}_5$};
+
+
+%\node [transitionV,label=below:$t_2$,rotate=90] (t2) at (4,0){};
+
+\draw (p1) edge[out=180,in=90,->] node[left] {$t_1$}(p2.north);
+\draw (p3) edge[out=90,in=0,->] node[right] {$t_4$}(p1.east);
+\draw (p2) edge[out=-90,in=90,->] node[left] {$t_2$}(p4.north);
+\draw (p3) edge[out=-90,in=90,->] node[right] {$t_2$}(p5.north);
+\draw (p4) edge[out=-90,in=180,->] node[left] {$t_3$}(p6.west);
+\draw (p5) edge[out=-90,in=0,->] node[right] {$t_1$}(p6.east);
+\draw (p5) edge[out=180,in=-90,->] node[right] {$t_3$}(p1.south);
+\draw (p6) edge[out=90,in=0,->] node[left] {$t_3$}(p2.east);
+
+
+
+%\draw (p2) edge[out=180,in=-90,->] node[auto] {$$}(t1.west);
+%\draw (t1.east) edge[out=90,in=180,->] node[auto] {$3$}(p1);
+
+\end{tikzpicture}

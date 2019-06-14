@@ -1,5 +1,9 @@
-%TODO Bild E_N
 
+	\begin{figure}[H]
+		\centering
+		\includegraphics{img/2019_06_13/abb1.tikz}
+	\end{figure}
+	
 \properparagraph{Reversibilität:}
 Def.: \beiblatt{4-5} unten
 
@@ -53,23 +57,56 @@ Analyse möglich auf
 \begin{itemize}
 	\item{\textbf{Erreichbarkeit:}} \beiblatt{4-7}\\
 	anwendbare Schaltungsgrenzen $\equiv$ mögliche Pfade im $E_N$
-	\item{\textbf{Lebendigkeit:}} \subitem{-} \underline{tote Transitionen: }  \beiblatt{4-7}\newline
- 	\subsubitem Bsp: %TODO Bild 2 
-	\subsubitem{a) $M_0 = (0,1,0,0)$}  %TODO Bild 3 + Farbe
-	$\rightarrow t_1$ tote Transitionen
-	\subsubitem{b) $M_0 = (1,0,0,0)$}  %TODO Bild 4 + Farbe
-	$\rightarrow$ $E_N$ mit neuem Knoten $\rightarrow$ $t_1$ nicht tot, aber $t_1$ auch nicht lebendig, da.....Rest wurde weggewischt %TODO drum kümmern, dass neue Zeile nicht so weit vorne anfängt
+	\item{\textbf{Lebendigkeit:}} \subitem{-} \textbf{tote Transitionen: }  \beiblatt{4-7}\newline
+ 	\subsubitem Bsp:	
+ 	
+ 	\begin{figure}[H]
+ 		\centering
+ 		\includegraphics{img/2019_06_13/abb2.tikz}
+ 	\end{figure}
+	\properparagraph{a) $M_0 = (0,1,0,0)$}  
+		\begin{figure}[H]
+			\centering
+			\includegraphics{img/2019_06_13/abb3.tikz}
+		\end{figure}
+		
+		\textbf{Erreichbarkeitsgraph}
+		
+		\begin{figure}[H]
+			\centering
+			\includegraphics{img/2019_06_13/abb4.tikz}
+		\end{figure}
+	$\rightarrow t_1$ tote Transition
+	
+	\properparagraph{b) $M_0 = (1,0,0,0)$}
+	\begin{figure}[H]
+		\centering
+		\includegraphics{img/2019_06_13/abb5.tikz}
+	\end{figure}
+	
+	\textbf{Erreichbarkeitsgraph}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics{img/2019_06_13/abb6.tikz}
+	\end{figure}
+	$\rightarrow$ $E_N$ mit neuem Knoten $\rightarrow$ $t_1$ nicht tot, aber $t_1$ auch nicht lebendig, da.....Rest wurde weggewischt (wahrscheinlich, weil man nicht mehr zum Zustand $(1,0,0,0)$ zurückkehren kann) %TODO drum kümmern, dass neue Zeile nicht so weit vorne anfängt
 	
 
 	
 	
-	\subitem{-} \underline{totale Verklemmung:} \beiblatt{4-7}\\
+	\subitem{-} \textbf{totale Verklemmung:} \beiblatt{4-7}\\
 	\item{\textbf{Konflikt:}} 
 	\subitem{-} möglich an Knoten (Markierungen) mit mehr als einer auslaufenden Kante
 	\subitem{-} tritt auf, wenn die auslaufenden Kanten der Folgeknoten nicht mehr mit den alternativen Transitionen beschriftet sind  %TODO drum kümmern, dass neue Zeile nicht so weit vorne anfängt
 	Bsp.: s. Bild 2, Markierung bei $S_1$
 	$\underline{m}_0^{T} = [1\, 0\, 0\,  1] \, , \, k(S_1) = 1$
-	%TODO Bild 5
+	
+	$\underline{m}_1^{T} = [0\, 1\, 0\,  1] \, , \, \underline{m}_2^{T} = [1\, 1\, 0\,  0] \, , \,\underline{m}_3^{T} = [0\, 0\, 1\,  1] \, , \, \underline{m}_4^{T} = [1\, 0\, 1\,  0] \, , \, \underline{m}_5^{T} = [0\, 1\, 1\,  0] $
+	\begin{figure}[H]
+		\centering
+		\includegraphics{img/2019_06_13/abb7.tikz}
+	\end{figure}
 	
 	potentielle Konflikte: bei $\underline{m}_0$ (vorhanden) und $\underline{m}_4$ (nicht vorhanden)
 \end{itemize}
@@ -85,6 +122,10 @@ Analyse des PNs möglich auf
 	\textbf{graphentheoretische Grundlagen} (s. BB AEH 4-1 bis 4-4)
 	
 	\textbf{Beispiel zur algebraischen Bestimmung einer Graphenkondensation}
+	\begin{figure}[H]
+		\centering
+		\includegraphics{img/2019_06_13/abb8.tikz}
+	\end{figure}
 	%TODO Bild 6 + Matrizen
 	
 \end{itemize}

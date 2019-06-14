@@ -1,0 +1,43 @@
+\usetikzlibrary{positioning,fit,backgrounds,arrows,shapes,automata,petri,calc,bending}
+\tikzset{
+    place/.style={
+        circle,
+        thick,
+        minimum size=6mm,
+                draw
+    },
+    transitionV/.style={
+        rectangle,
+        thick,
+        fill=black,
+        minimum height=6mm,
+        inner xsep=1pt
+    }
+}
+\begin{tikzpicture}[]
+%\draw[gray!30] (0,-3) grid (12,3);
+%\node[gray!50] at (0,0) {0};
+
+%\node [place,tokens=1,label={above:$s_1$},label={below:$K=10$}] (p1) at (2,2){};
+\node [place,tokens=0,label={below:$S_1$}] (p1) at (0,0){};
+\node [right = of p1, transitionV,label=below:$t_1$,rotate=0] (t1) {};
+\node [right = of t1, place,tokens=0,label={below:$S_2$}] (p2) {};
+\node [right = of p2, transitionV,label=below:$t_2$,rotate=0] (t2) {};
+\node [right = of t2, place,tokens=0,label={below:$S_3$}] (p3) {};
+\node [right = of p3, transitionV,label=below:$t_3$,rotate=0] (t3) {};
+\node [right = of t3, place,tokens=0,label={below:$S_4$}] (p4) {};
+\node [above = of p3, transitionV,label=below:$t_4$,rotate=0] (t4) {};
+%\node [transitionV,label=below:$t_2$,rotate=90] (t2) at (4,0){};
+
+\draw (p1) edge[out=0,in=180,->] node[above] {$$}(t1.west);
+\draw (t1.east) edge[out=0,in=180,->] node[auto] {}(p2);
+\draw (p2) edge[out=0,in=180,->] node[above] {$$}(t2.west);
+\draw (t2.east) edge[out=0,in=180,->] node[auto] {}(p3);
+\draw (p3) edge[out=0,in=180,->] node[above] {$$}(t3.west);
+\draw (t3.east) edge[out=0,in=180,->] node[auto] {}(p4);
+\draw (p4) edge[out=90,in=0,->] node[above] {$$}(t4.east);
+\draw (t4.east) edge[out=180,in=90,->] node[auto] {}(p2);
+%\draw (p2) edge[out=180,in=-90,->] node[auto] {$$}(t1.west);
+%\draw (t1.east) edge[out=90,in=180,->] node[auto] {$3$}(p1);
+
+\end{tikzpicture}
