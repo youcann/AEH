@@ -1,0 +1,141 @@
+\begin{enumerate}
+	\item \underline{Hinzufügen zusätzlicher (normaler) Kanten} \beiblatt{3-2 unten}
+	%TODO Abb.
+	
+	\properparagraph{Kennzeichen:}
+	\begin{itemize}
+		\item Verknüpfungen unübersichtlich
+		\item Schleifenbildung
+		\item Ursache/Folgen-Kopplung
+	\end{itemize}
+
+	\item \underline{Verwenden von Test-/Inhibitorkanten}
+	\beiblatt{3-3 oben}
+	%TODO Abb
+	
+	\properparagraph{Kennzeichen:}
+	\begin{itemize}
+		\item Verknüpfungen unübersichtlich
+		\item keine Schleifen
+		\item Ursache/Folge-Kopplung
+		\item Spezialkanten vorhanden
+	\end{itemize}
+	
+	\item \underline{Modellierung als NCE-System}
+	\beiblatt{3-3 unten}
+	%TODO Abb.
+	
+	\properparagraph{Kennzeichen:}
+	\begin{itemize}
+		\item transparent und übersichtlich
+		\item echte Ereignisparalellität
+		\item Spezialkanten vorhanden
+	\end{itemize}
+\end{enumerate}
+
+\subsubsection{Fördereinrichtung: Modellierung als NCE-System}
+Hier: Modellierung eines Hubtisches: \beiblatt{3-4}
+
+\begin{enumerate}
+	\item Modularisierung
+	\begin{enumerate}
+		\item \underline{Mechanik (Tischposition)}\\
+		Zustandsgrößen:
+		\begin{itemize}
+			\item Position (oben/unten/Mitte)
+			\item Positionsänderung (auf/ab)
+		\end{itemize}
+		\item \underline{Motor (Aktorik)}\\
+		Zustandsgrößen:
+		\begin{itemize}
+			\item Antriebsrichtung (hoch/runter)
+			\item Motorzustand (aus/Überlast)
+		\end{itemize}
+		\item \underline{Endschalter}\\
+		Zustandsgrößen:
+		\begin{itemize}
+			\item Betätigungen (0/1)
+		\end{itemize}
+	\end{enumerate}
+	\item Verkopplung der Module
+	\beiblatt{3-5}
+\end{enumerate}
+
+\subsection{Ressourcenorientierte Modellierung}
+häufig angewandt bei wesensmäßig sequentiellen/Objektbezogenen Prozessvorgängen (z.B. Fertigungstechnik, Fördertechnik, Verkehrstechnik).
+
+Mit \textit{Ressourcen} (z.B. Bearbeitungsmaschinen, Kräne, Gleisabschnitte), für die ein diskreter Belegungsablauf durch Nutzer (Teile, Lasten, Züge) existiert.
+
+\properparagraph{Vorgehensweise:}
+\begin{itemize}
+	\item Bestimmung der relevanten Ressourcen im Prozessgeschehen (PN: Stellen) und deren mögliche Nutzer (PN: Marken)
+	\item Festlegung der Ressourcen-verkopplung und -abfolge (PN: Kanten) mit entsprechenden Nutzerwechseln (PN: Transitionen)
+	\item ggf. Ressourcen zusammenfassen (PN: Teilnetze) 
+\end{itemize}
+
+\properparagraph{Ergebnis:}
+Bei PNen häufig S/T-Netze, da z.B. zur Abbildung mehrerer Nutzer (mehrere Marken) $K(s_i)>1$
+
+\subsubsection{Flugplatzgeschehen: Modellierung als PN}
+Hier: Ausschnitt einer PN-Modellierung der Flugzeugbewegungen auf einem Flugplatz:
+
+\begin{itemize}
+	\item Luftraum:\\
+	\begin{itemize}
+		\item An- und Abflug
+		\item Warteschleife
+	\end{itemize}
+	
+	\item Boden:\\
+	\begin{itemize}
+		\item Start- und Landebahnen
+		\item Rollbahn
+	\end{itemize}
+\end{itemize}
+
+\beiblatt{3-6}
+
+Typische Steuerungsaufgaben:
+\begin{itemize}
+	\item Ablaufkoordination
+	\item Konfliktlösung
+	\item Verhinderung verbotener Zustände
+\end{itemize}
+
+\section{Analyse ereignisdiskreter Systeme}
+Hier: als DES-Modelle speziell PN betrachtet.
+
+Analyse für unterschiedliche Modelltypen:
+\begin{itemize}
+	\item Streckenmodell (ungesteuerter Prozess)
+	\item Modell der Steuerung
+	\item Modell des gesteuerten Prozess
+\end{itemize}
+
+Erforderliche Grundlagen: Elemente der Graphentheorie \beiblatt{4-1 \dots 4-4}
+
+\subsection{Eigenschaften von PNen}
+Hier: konkrete Eigenschaften von PNen, die zur Analyse des Modellverhaltens dienen. Also z.B. Auffinden von Modellzuständen, die
+
+\begin{itemize}
+	\item unmöglich sind.
+	\item verboten sind.
+	\item nicht mehr verlassen werden können.
+\end{itemize}
+
+\subsubsection{Erreichbarkeit und Reversibilität}
+Erreichbarkeit: \beiblatt{4-5}
+
+also: Erreichbarkeitsgraph $E_N$: grafische Übersicht über alle von $M_0$ (über anwendbare Schaltsequenzen) erreichbare Markierungen.
+
+%TODO Abb.
+
+
+
+
+
+
+
+
+
+
