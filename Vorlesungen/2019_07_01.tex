@@ -1,0 +1,96 @@
+\subsection{Analyse zeitbewerteter Synchronisationsgraphen mit der Max-Plus-Algebra}
+\underline{Beispiel:} Batchprozess aus 1.3
+
+%TODO Abb
+
+\underline{Merkmale}
+\begin{itemize}
+	\item Zyklischer Ablauf
+	\item Synchronisationen
+	\item Konflikte aufgelöst (keine Alternativen)
+	\item Zeitbewertungen
+\end{itemize}
+
+$\Rightarrow$ Modellierung mit zeitbewerteten Synchronisationsgraphen möglich!
+
+Schaltvorgang \beiblatt{4-11}
+
+\subsubsection{Grundlagen der Max-Plus-Algebra (MPA)}
+Max-Plus-Algebra: algebraische Struktur mit der Grundmenge $R_{max}=\mathbb{R} \cup \{\underbrace{-\infty}_{\epsilon}\}$
+
+Verknüpfungen:
+\begin{itemize}
+	\item Addition $\oplus$
+		$a \oplus b := \text{max}(a,b)$
+	\item Multiplikation $\otimes$
+		$a \otimes b := a + b$
+\end{itemize}
+
+Eigenschaften: \beiblatt{4-12}
+
+\underline{Anmerkungen:}
+\begin{itemize}
+	\item Bei Matrizen häufig kurz $\ubar{A} \, \ubar{B}$ statt $\ubar{A} \otimes \ubar{B}$ geschrieben
+	\item Gleichungssysteme mit der MPA nicht so einfach lösbar wie gewohnt, da inverses Element zu $\oplus$ (Maximumbildung) fehlt.
+\end{itemize}
+
+\subsubsection{Algebraische Beschreibung zeitbewerteter Synchronisationsgraphen}
+Gleichung für Schaltzeitpunkte in der MPA: \beiblatt{4-13}
+
+\underline{Beispiel}
+
+%TODO Abb.
+
+\begin{equation}
+	\ubar{x}(k+1) = 
+	\underbrace{
+		\m{
+		\epsilon & \epsilon & \epsilon & \epsilon \\
+		\tau_{21} & \epsilon & \epsilon & \epsilon \\
+		\tau_{31} & \epsilon & \epsilon & \epsilon \\
+		\epsilon & \tau_{42} & \tau_{43} & \epsilon \\
+		}
+	}_{\underline{A_0}}
+	x(k+1) 
+	\oplus
+	\underbrace{
+		\m{
+			\epsilon & \epsilon & \epsilon & \tau_{14} \\
+			\epsilon & \epsilon & \epsilon & \epsilon \\
+			\epsilon & \epsilon & \epsilon & \epsilon \\
+			\epsilon & \epsilon & \epsilon & \epsilon \\
+		}
+	}_{\underline{A_1}}
+\end{equation}
+
+\properparagraph{Herleitung der expliziten Gleichung (rekursiv)}
+
+\begin{equation}
+	\underline{x}(k+1) = \underline{A_0} \underline{x}(k+1) \oplus \underline{A_1} \underline{x}(k)
+\end{equation}
+
+\begin{center}
+	$\Downarrow$ sukzessive $(n-1)$-mal in sich selbst eingesetzt
+\end{center}
+
+\begin{align}
+	\underline{x}(k+1) &= \underline{A_0^2} \underline{x}(k+1) 
+	\oplus \underline{A_0} \underline{A_1} \underline{x}(k)
+	\oplus \underline{A_1} \underline{x}(k) \\
+	&\vdots\\
+	&= \underline{A_0^n} \underline{x}(k+1) 
+	\oplus \underbrace{\left( \underline{A_0^{n-1}} \oplus \ldots \oplus \underline{A_0} \oplus \underline{I} \right)}_{\underline{A_0^\ast}} \underline{A_1} \underline{x}(k)
+\end{align}
+
+
+
+
+
+
+
+
+
+
+
+
+
