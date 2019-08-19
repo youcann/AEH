@@ -1,0 +1,149 @@
+\marginpar{VL am 15.07.19}
+\subsection{Steuerungsentwurf}
+\subsubsection{Entwurf von Ablaufsteuerungen}
+Meist nur intuitives Vorgehen gemäß gewünschtem Prozessablauf \beiblatt{5-8}.
+
+\properparagraph{Beispiel}
+\begin{itemize}
+	\item Batch-Prozess aus 1.3
+	\item siehe Abschnitt 5.5.1
+\end{itemize}
+
+\subsubsection{Entwurf von Verriegelungssteuerungen}
+Verriegelung: Verhindern verbotener Zustände \beiblatt{5-8 unten}
+
+\properparagraph{PN:}
+Verhinderung verbotener Markierungen
+
+Beispiel: Flugplatz \beiblatt{3-6}
+$\Rightarrow \text{mit: } m(k) \quad m_{11}+m_{5}+m_{6}+m_{7} \le 1$
+
+Zwei Entwurfsverfahren:
+\begin{enumerate}
+	\item \underline{Entwurf mit Hilfe von S-Invarianten [Moody/AnXXX]}
+		
+		\properparagraph{Ausgangspunkt}
+		\begin{itemize}
+			\item PN-Modell des ungesteuerten Prozess: $\wbar{N} \wbar{m}(0) = \wbar{m}_0$
+			\item $p$ Verbote für jeweils eine maximale Markenanzahl
+			\begin{equation}
+				\label{eq:pVerbote}
+				\underbrace{\wbar{L} \wbar{m}(k)}_{
+				\begin{subarray}{c}
+					\underset{(p,n)}{\wbar{L}}  \text{Spezifikationen der~} \\ p \text{~Markierungen}
+				\end{subarray}} \le \underbrace{\wbar{b}}_{
+				\begin{subarray}{c}
+					\text{maximal zulässigen} \\
+					\text{Markenanzahlen in den} \\
+					\text{spezifizierten Stellenmengen}
+				\end{subarray}	
+				} \quad( \forall k) 
+			\end{equation}
+			
+			\properparagraph{Prinzip des Steuerungsentwurfs}
+			Einfügen von $p$ zusätzlichen Stellen (Kontrollstellen) $s_{c1},\,\ldots,\,s_{sp}$ mit entsprechenden Kanten zur Erzielung von (\ref{eq:pVerbote}).
+			
+			\properparagraph{Vorgehen}
+			\begin{enumerate}[label=(\roman*)]
+				\item Umformung von (\ref{eq:pVerbote}) in eine Gleichung mit 
+				\begin{equation}
+				\wbar{m}_c(k) = \m{m_{c1}(k),\,\ldots,\,m_{cp}(k)}^T \qquad \text{($\hat{=}$ Schlupfvariablen)}
+				\end{equation}
+				
+				\begin{equation}
+					\label{eq:vorgehen1}
+					\wbar{L} \wbar{m}(k) + \wbar{m}_c(k) = \wbar{b}
+				\end{equation}
+				
+				\begin{equation}
+					\label{eq:vorgehen2}
+					\m{\wbar{L} & \wbar{I}} \m{\wbar{m}(k) \\ \wbar{m}_c(k)} = \wbar{b} 
+					\; \text{bzw.} \;
+					\m{\wbar{m}^T(k) & \wbar{m}_c^T(k)} \m{\wbar{L}^T \\ \wbar{I}} = \wbar{b}^T
+				\end{equation}
+				
+				\item (\ref{eq:vorgehen2}) gültig $\forall k$:
+				\begin{equation}
+					\m{\wbar{m}^T(k) & \wbar{m}_c^T(k)} \m{\wbar{L}^T \\ \wbar{I}} 
+					\stackrel{!}{=}
+					\m{\wbar{m}^T(k+1) & \wbar{m}_c^T(k+1)} \m{\wbar{L}^T \\ \wbar{I}} 
+				\end{equation}
+				
+
+				$\Rightarrow \m{\wbar{L}^T \\ \wbar{I}}$ : S-Invariante des erweiterten Petri-Netztes 
+				
+				mit $\wbar{N}_{erw} = \m{\wbar{N} \\ \wbar{N}_c}$, $\wbar{N}_c$: Kontrollstellen
+				
+				\item also gilt:
+				\begin{equation}
+					\wbar{N}_{erw}^T \cdot \m{\wbar{L}^T \\ \wbar{I}} \stackrel{!}{=} \wbar{0}
+				\end{equation}
+				
+				\begin{equation}
+					\m{N^T & N_c^T} \m{\wbar{L}^T \\ \wbar{I}} = \wbar{0}
+					\; \text{bzw.} \;
+					N_c^T = - N^T L^T
+				\end{equation}
+				
+				\begin{equation}
+					\wbar{N}_c = - \wbar{L} \, \wbar{N} \; \text{(Festlegung der zusätzlichen Kanten für die Steuerung)}
+				\end{equation}
+				
+				\item außerdem: (\ref{eq:vorgehen1}) $\Rightarrow$
+				\begin{equation}
+					\wbar{m}_c(0) = \wbar{b} - \wbar{L} \, \wbar{m}(0) \; \text{(Anfangsmarkierung der Stellen)}
+				\end{equation}
+			\end{enumerate}
+			
+			\properparagraph{Anmerkung:}
+			Im gesteuerten PN sind neue tote Markierungen möglich. Daher ist stets eine erneute Überprüfung des neuen Erreichbarkeitsgraphen erforderlich.
+			
+			
+		\end{itemize}
+	\item \underline{Entwurf mit Hilfe der Max-Plus-Algebra}
+	
+	\properparagraph{Ausgangspunkt}
+	\begin{itemize}
+		\item Zeitbewerteter Synchronisationsgraph der Strecke $\wbar{A}$
+		\item Verbote gleichzeitiger Stellenbelegungen, z.B. Stellen $s_i$ und $s_j$.
+	\end{itemize}
+	
+	\properparagraph{Prinzip des Steuerungsentwurf}
+	Gezielte Beeinflussung der Transitionenschaltzeitpunkte in den Vorbereichen von $s_i$ und $s_j$ ($\hat{=}$ Veränderung der Matrix $\wbar{A}$) durch zusätzliche Stellen, z.B.
+	\begin{equation}
+		t_r = \bullet s_i \; \text{und} \; t_s = \bullet s_j
+	\end{equation}
+	
+	Entwurfsforderung:
+	\begin{equation}
+		x_r(k) \neq x_s(k+l) \qquad (\forall k,l \ge 0)
+	\end{equation}
+\end{enumerate}
+
+\subsubsection{Verifikation des gesteuerten Prozessverhaltens}
+\beiblatt{5-9}
+
+\subsubsection{Implementierung}
+Zum Beispiel mit einer SPS \beiblatt{5-10}
+
+\subsection{Beispiele}
+\subsubsection{Steuerung eines Hubtisches}
+Gegeben: NCE-Modell der Strecke \beiblatt{3-5}
+
+Hier: Entwurf einer Ablaufsteuerung mit integrierter Verriegelungssteuerung (intuitiver Entwurf)
+
+\properparagraph{Spezifikationen}
+\begin{itemize}
+	\item \textbf{Ablauf}
+	%TODO Abb
+	\item \textbf{Verriegelung}
+	\begin{itemize}
+		\item Hubtischbewegung ist verboten, falls ein Bediener innerhalb des Arbeitsbereichs ist
+		\item Umsetzung der Spezifikation im Steuerungsmodul
+		\item Verknüpfung mit der Strecke \beiblatt{5-11}
+		\item Modell des gesteuerten Prozess \beiblatt{5-12}
+	\end{itemize}
+\end{itemize}
+
+
+

@@ -1,0 +1,131 @@
+\marginpar{VL am 08.07.19}
+\underline{Wiederholung}
+
+\underline{$\wbar{x}(0) \neq \wbar{v}$}
+\begin{equation}
+	\forall k \ge l : \wbar{A}^{k+\gamma} = \lambda^\gamma \otimes \wbar{A}^k \Rightarrow \wbar{x}(k+\gamma) = \lambda^\gamma \otimes \wbar{x}(k)
+\end{equation}
+
+\underline{Sonderfall $\gamma=1$}
+
+\begin{equation}
+	\forall k \ge l : \wbar{A}^{k+1} = \lambda \otimes \wbar{A}^k
+\end{equation}
+
+\begin{align}
+	(\ref{eq:mpa2}) \Rightarrow \wbar{x}(k+1) &= \wbar{A}^{k+1} \otimes \wbar{x}(0) \\
+	&= \wbar{A}^k \otimes k \lambda \otimes \wbar{x}(0)
+	&= \lambda \otimes \wbar{x}(k)
+\end{align}
+(also: $x_i(k+1) = \lambda + x_i(k)$)
+
+außerdem: wegen $\wbar{x}(k+1) = \wbar{A} \otimes \wbar{x}(k)$ nach (\ref{eq:mpa1}):
+\begin{equation}
+	\wbar{A} \otimes \wbar{x}(k) = \lambda \otimes \wbar{x}(k)
+\end{equation}
+d.h. $\wbar{x}(k)$ : Eigenvektor $\wbar{v}$ von $\wbar{A}$
+
+\begin{equation}
+	\Rightarrow \wbar{x}(k+1) = \lambda \otimes \wbar{v}
+\end{equation}
+
+\subsubsection{Beispiel}
+Beispiel zur Analyse des Zeitverhaltens \beiblatt{4-15, 4-16}
+
+
+
+\section{Spezifikation und Entwurf von ereignisdiskreten Steuerungen}
+Steuerungsentwurf $\hat{=}$ spezielle Automatisierungsaufgabe \beiblatt{5-1}
+
+\underline{Ausgangspunkt}
+\begin{itemize}
+	\item DES-Modell des ungesteuerten Prozess ($\hat{=}$ Strecke)
+	\item Spezifikation des Steuerungsziels (gesteuertes Prozessverhalten)
+\end{itemize}
+
+\beiblatt{5-2} (Batch-Prozess aus 1.3)
+
+\underline{ProblemXXXX beim ereignisdiskreten Steuerungsentwurf}
+\begin{itemize}
+	\item Entwurfsmethodik
+	\item Repräsentation (Modellierung)
+	\item Realisierung (Implementierung)
+	\item Verifikation
+\end{itemize}
+
+\underline{Ereignisdiskrete Steuerung}
+
+Definition und Struktur \beiblatt{5-3}.
+
+\subsection{Klassifikation von Steuerungszielen und Steuerungen}
+\begin{itemize}
+	\item Steuerungsziele
+	\item Steuerungshierarchie
+	\smash{\raisebox{.5\dimexpr1\baselineskip+2\itemsep+1\parskip}{$\left.\rule{0pt}{.5\dimexpr2\baselineskip+2\itemsep+2\parskip}\right\}\text{\beiblatt{5-4}}$}}
+\end{itemize}
+
+\subsubsection{Verrieglungssteuerungen}\label{subsec:verr}
+häufig sicherheitsrelevante Prozessteile betroffen $\Rightarrow$ prozess-nahe Steuerung
+
+\properparagraph{Beispiel: Motorsicherheitssteuerung}
+
+%TODO Abb
+
+\underline{Kennzeichen:}
+
+Steuergrößen ergeben sich aus einer Verknüpfung der Eingangsgrößen (Verknüpfungssteuerung), die entweder 
+\begin{enumerate}[label=(\alph*)]
+	\item rein statisch (Schaltnetz) -oder-
+	\item durch integrierte Speicher und Zeitdefinitionen dynamisch (Schaltwerke)
+\end{enumerate}
+ist.
+
+\subsubsection{Ablaufsteuerungen}
+Nächsthöhere Steuerung auf \textit{Maschinenebene}.
+
+\underline{Kennzeichen:}
+
+Steuergrößen ergeben sich aus dem schrittweisen Ablauf (sequentielle Steuerung) in Abhängigkeit von Übergangsbedingungen, die sich entweder
+\begin{enumerate}[label=(\alph*)]
+	\item zeitgeführt (Bsp. Ampel) -oder- \label{enum:ablaufA}
+	\item prozessgeführt (Bsp. Eisenbahnschranke) -oder- \label{enum:ablaufB}
+	\item als Kombination von \ref{enum:ablaufA} und \ref{enum:ablaufB} (Bsp. Batchprozess aus 1.3)
+\end{enumerate}
+durch Auswertung der Messgrößen ergeben.
+
+\subsubsection{Koordinationssteuerungen}
+Steuerungen auf \textit{Betriebsebene}.
+
+\underline{Kennzeichen:}
+
+Steuergrößen ergeben sich aus übergeordneten Vorgaben zur Optimierung des Prozessablaufs (z.B. Energie-, Zeit-, Geld-Optimierung) und dienen zur Koordination der Teilprozesse (Einzel-/Gruppensteuerung)
+
+\properparagraph{Beispiel}
+Stückzahlmaximierung in der Fertigung
+
+\subsection{Steuerungsspezifikation}
+Definition und Arten \beiblatt{5-5}
+
+\subsubsection{Programmiersprachen nach IEC 1131-3}
+Beispiel: Motorsicherheitssteuerung nach \ref{subsec:verr} \beiblatt{5-6, 5-7}
+
+\subsubsection{Petri-Netze}
+Im Prinzip äquivalent zu SFC
+\begin{itemize}
+	\item[+] Vorteil: Analysemöglichkeiten (vgl. Kapitel 4)
+	\item[-] Nachteil: Im industriellen Umfeld bislang nur vereinzelt eingesetzt 
+\end{itemize} 
+
+Für Steuerung: Ein-/Ausgabekonzept erforderlich
+
+$\Rightarrow$ (steuerungstechnisch) \underline{Interpretiertes Petri-Netz (IPN)}
+
+%TODO Abb.
+
+
+
+
+
+
+
+

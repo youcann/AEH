@@ -1,0 +1,89 @@
+\marginpar{VL am 22.07.19}
+\subsubsection{Steuerung einer Fertigungsanlage}
+
+\properparagraph{PN-Modell einer Werkstückbearbeitung}
+\beiblatt{5-11}
+
+\begin{itemize}
+	\item Erreichbarkeitsgraph (komprimiert) \beiblatt{5-14}
+	\item Tote Markierung $\wbar{m}_{tot}$ vorhanden ($\hat{=}$ Maschine vollständig belegt und neuer Ladevorgang aktiviert)
+\end{itemize}
+
+\begin{enumerate}
+	\item \underline{Entwurf mittels der S-Invarianten \beiblatt{5-15}}
+	%TODO BB
+	\item \underline{Entwurf mittels der Max-Plus-Algebra}
+	Alternatives Prozessmodell (Synchronisationsgraph) und Darstellung der MPA: \beiblatt{5-16}
+	
+	Intuitiver Steuerungsentwurf: \beiblatt{5-17}
+\end{enumerate}
+
+
+\section{Hybride Systeme}
+Hybride Systeme: \beiblatt{1-5}
+
+\subsection{Hybride Phänomene}
+\underline{allgemein:} diskrete Ereignisse im kontinuierlichen Systemverlauf
+
+Übersicht: \beiblatt{6-1}
+
+\properparagraph{Beispiele}
+\underline{Umschalten}
+\begin{itemize}
+	\item selbstständig: an Systemgrenzen (=Triggermengen), z.B. Tanküberlauf
+	\item gesteuert: z.B. Ventilöffnung
+\end{itemize}
+
+\underline{Sprung}
+\begin{itemize}
+	\item selbstständig: z.B. Hystereseeffekte
+	\item gesteuert: z.B. el. Schalter
+\end{itemize}
+
+\subsection{Das Netz-Zustands-Modell (NZM)}
+Beschreibungsform für hybride Systeme, die modularer zwei statisch verkoppelte Systemanteile enthält.
+
+\begin{itemize}
+	\item kontinuierlicher Systemanteil: Erweitertes Zustandsmodell (EZM)
+	\begin{itemize}
+		\item Zustands-DGL $\wbar{\dot{x}}_K(t) = f(\wbar{x}_K(t),\,\underbrace{\wbar{u}_K(t),\,\wbar{v}_K}_{\text{Eingänge}})$
+		\item Impulsgleichung $x_K(t_K) = g(x_K(t_k^-),\,v_K(t_k),\,v_K(t_k^-))$
+	\end{itemize}
+	\item ereignisdiskreter Systemanteil: Interpretiertes PN (IPN)
+	\begin{itemize}
+		\item Netzzustand ($\hat{=}$ Markierung) $x_D(k) = \wbar{h}(x_D(k-1),\,b(k-1))$
+		\item Transitionenschaltbedingung $b(k) = l(\underbrace{u_D(k),\,v_D}_\text{Eingänge})$
+	\end{itemize}
+	\item statische Kopplung
+	\begin{itemize}
+		\item D/K-Interface $v_K = \gamma_{DK}(x_D(k))$ (reelle Größen, binär)
+		\item K/D-Interface $v_D = \gamma_{KD}(x_K(t))$ (binär)
+	\end{itemize}
+\end{itemize}
+
+gesteuertes PN: \beiblatt{6-2}
+
+\subsection{Simulation, Analyse und Steuerung hybrider Systeme}
+Hier: Einsatz des NZMs
+Ausführung im Detail: (s. at-Aufsatz)
+
+\begin{enumerate}
+	\item \underline{Simulation}
+	%TODO Abb.
+	\item \underline{Analyse} \label{enum:analysehybrid}
+	Zentrale Fragestellung: Erreichbarkeit (von gewünschten/verbotenen Zuständen)
+	
+	Hierzu: bidirektionale Erreichbarkeitsanalyse 
+	
+	Beispiel
+	%TODO Abb 
+	\item \underline{Steuerung}
+	Auf Basis von \ref{enum:analysehybrid}: Trajektorienplanung (= Ermittlung der gewünschten Folge von Steuereingriffen)
+	
+	Struktur der Steuerung: \beiblatt{6-3}
+\end{enumerate}
+
+\subsection{Beispiel: Zweitanksystem}
+(s. at-Aufsatz)
+
+

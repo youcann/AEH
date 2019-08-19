@@ -39,12 +39,25 @@
 
 %kluwe-specific specials
 \newcommand{\beispiel}{\underline{Beispiel:~}}
+
 \usepackage{accents}
 \newcommand{\ubar}[1]{\underaccent{\bar}{#1}}
+\DeclareFontFamily{U}{mathx}{\hyphenchar\font45}
+\DeclareFontShape{U}{mathx}{m}{n}{
+	<5><6><7><8><9><10>
+	<10.95><12><14.4><17.28><20.74><24.88>
+	mathx10
+}{}
+\DeclareSymbolFont{mathx}{U}{mathx}{m}{n}
+\DeclareFontSubstitution{U}{mathx}{m}{n}
+\DeclareMathAccent{\widebar}{0}{mathx}{"73}
+\newcommand{\wbar}[1]{\underaccent{\widebar}{#1}}
+
 \newcommand\m[1]{\begin{bmatrix}#1\end{bmatrix}}
 \newcommand{\beiblatt}[1]{(s. BB AEH #1)}
 \usepackage{enumitem}
 \newenvironment{descFixed}[1][2]{\begin{description}[style=unboxed, labelindent=0em , labelwidth=#1cm, labelsep*=1em, leftmargin =!]}{\end{description}}
+\usepackage[uline]{hhtensor}
 
 \setlength{\parindent}{0pt}
 
@@ -74,14 +87,14 @@
 \newpage
   \pagestyle{headings} 
   
-%\input{Vorlesungen/2019_04_29.tex}
-%\input{Vorlesungen/2019_05_06.tex}
-%\input{Vorlesungen/2019_05_13.tex}
-%\input{Vorlesungen/2019_05_20.tex}
-%\input{Vorlesungen/2019_05_27.tex}
-%\input{Vorlesungen/2019_06_03.tex}
-%\input{Vorlesungen/2019_06_13.tex}
-%\input{Vorlesungen/2019_06_24.tex}
+\input{Vorlesungen/2019_04_29.tex}
+\input{Vorlesungen/2019_05_06.tex}
+\input{Vorlesungen/2019_05_13.tex}
+\input{Vorlesungen/2019_05_20.tex}
+\input{Vorlesungen/2019_05_27.tex}
+\input{Vorlesungen/2019_06_03.tex}
+\input{Vorlesungen/2019_06_13.tex}
+\input{Vorlesungen/2019_06_24.tex}
 \input{Vorlesungen/2019_07_01.tex}
 \input{Vorlesungen/2019_07_08.tex}
 \input{Vorlesungen/2019_07_15.tex}
