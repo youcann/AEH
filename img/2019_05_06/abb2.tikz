@@ -1,0 +1,11 @@
+\begin{tikzpicture}
+
+\node[draw, circle,minimum size=1cm,label={[align=center]below:},label={[align=center]above:Lager}] (1) at (0,0) {}; 
+\node[draw, circle,minimum size=1cm,label={[align=center]below:\textcolor{green}{\SI{15}{\minute}}\\\textcolor{blue}{\SIrange{10}{20}{\minute}}},label={[align=center]above:Transport}] (2) at (4,0) {};
+\node[draw, circle,minimum size=1cm,label={[align=center]below:\textcolor{green}{\SI{60}{\minute}}\\\textcolor{blue}{\SIrange{50}{70}{\minute}}},label={[align=center]above:Bearbeitung}] (3) at (8,0) {};
+
+\draw (1) edge[bend left,-latex] node [left,anchor=north] {} (2);
+\draw (2) edge[bend left,-latex] node [left,anchor=north] {} (3);
+\draw (3) edge[bend left,-latex] node [left,anchor=north] {} (2);
+\draw (2) edge[bend left,-latex] node [left,anchor=north] {} (1);
+\end{tikzpicture}

@@ -3,27 +3,41 @@
 
 \underline{Ereignisdiskrete Systeme (DES)}
 
-diskreter, abzählbarer Zustandsraum ohne natürliche Ordnung der Zustände.
+Diskreter, abzählbarer Zustandsraum ohne natürliche Ordnung der Zustände.
 \begin{itemize}
 	\item kein Abstandsmaß für eine eventuelle differentielle/integrale Betrachtung
 	\item Analyse und Synthese meist auf Suchalgorithmen basierend (Problem: kombinatorische Explosion)
 \end{itemize}
 
-\underline{Übersicht über Modelltypen und Beschreibungsformen}
-%(s. \textit{BB. AEH 2-1})
-%TODO überdenken, ob das so gut aussieht
+\underline{Übersicht über Modelltypen und Beschreibungsformen}\beiblatt{2-1}
+
 \begin{figure}[H]
 	\centering
 	\includegraphics[page=11,scale=0.55]{material/AEH_2019.pdf}
 \end{figure}
 
-
-
 \properparagraph{Übergangsverhalten: beschreibt Zustandsübergänge}
-%TODO Abb.
+Beispiel:
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.2\textwidth]{img/2019_05_06/abb1.tikz}
+\end{figure}
+\begin{itemize}
+	\item \textcolor{green}{deterministisch}
+	\item \textcolor{blue}{nicht deterministisch}
+	\item \textcolor{red}{stochastisch}
+\end{itemize}
 
 \properparagraph{Zeitverhalten: beschreibt Zeitabhängigkeit der Zustandsübergänge}
-%TODO Abb.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{img/2019_05_06/abb2.tikz}
+\end{figure}
+\begin{itemize}
+	\item \textcolor{black}{kausal}
+	\item \textcolor{green}{zeitbewertet}
+	\item \textcolor{blue}{stochastische Zeitinvtervalle}
+\end{itemize}
 
 \underline{hier:}
 
@@ -39,22 +53,22 @@ diskreter, abzählbarer Zustandsraum ohne natürliche Ordnung der Zustände.
 \end{itemize}
 
 \subsubsection{Automaten}
-\underline{hier:} endliche Automaten betrachtet. (Def s. \textit{BB. AEH 2-2})
+\underline{hier:} endliche Automaten betrachtet. Def. \beiblatt{2-2}
 
 \properparagraph{Repräsentation}
 \begin{itemize}
 	\item Automatentafel (Transitionstafel)
-	\smash{\raisebox{-.5\dimexpr1\baselineskip+4\itemsep+2\parskip}{$\left.\rule{0pt}{.5\dimexpr2\baselineskip+3\itemsep+3\parskip}\right\}\text{(s. \textit{BB AEH 2-2})}$}} 
+	\smash{\raisebox{-.5\dimexpr1\baselineskip+4\itemsep+2\parskip}{$\left.\rule{0pt}{.5\dimexpr2\baselineskip+3\itemsep+3\parskip}\right\}\text{(s. \beiblatt{2-2})}$}} 
 	\item Automatengraph 
 \end{itemize}
 
-\underline{Beispiel: } Mealy-Automat (s. \textit{BB AEH 2-5})
+\underline{Beispiel: } Mealy-Automat \beiblatt{2-5}
 
 \subsubsection{Formale Sprachen}
 formales Beschreibungsmittel für DES
 
 \properparagraph{Grundbegriffe}
-(s. \textit{BB AEH-2-3})
+\beiblatt{2-3}
 
 \underline{Beispiel:}
 \begin{equation}
@@ -82,28 +96,27 @@ s_2 &= e_1 e_2 \\
 	L_1^{\ast}(E) = \{ \underbrace{\epsilon}_\text{leeres Wort}, e_2, e_1 e_3, e_2 e_2, e_2 e_1 e_3, e_1 e_3 e_1 e_3, \ldots \}
 \end{equation}
 
-
-
 \properparagraph{Zusammenhang mit den endlichen Automaten}
-Reguläre Sprachen: (s. \textit{BB AEH 2-4})
+Reguläre Sprachen: \beiblatt{2-4}
 
 es gilt: jede reguläre Sprache kann von einem endlichen Automaten repräsentiert werden.
 
-\underline{Beispiel:} $L(E) = \{e_1^{\ast} e_2\}$
+\underline{Beispiel:} $L(E) = \{e_1^{\ast} e_2\} \qquad (E=\{e_1,\,e_2\})$
 
-%TODO Abb.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.3\textwidth]{img/2019_05_06/abb3.tikz}
+\end{figure}
 
-analog: für jeden endlichen Automaten $A$ gibt es eine spezifische reguläre Sprache $L_A$, die er akzeptiert. (s. \textit{BB AEH 2-4})
+Analog: für jeden endlichen Automaten $A$ gibt es eine spezifische reguläre Sprache $L_A$, die er akzeptiert. (s. \textit{BB AEH 2-4})
 
-\underline{Beispiel: } Mealy-Automat (auf \textit{BB AEH 2-5})
+\underline{Beispiel: } Mealy-Automat auf \beiblatt{2-5}
 \begin{equation}
 	L_A = \{ (e_3^{\ast}(e_1 (e_2 e_3)^{\ast} e_1 e_2)^{\ast})^{\ast} \}
 \end{equation}
 (s. \textit{BB AEH 2-5})
 
 \underline{in Vorlesung: } Petri-Netze als Alternative DES-Modelle fokussiert.
-
-
 
 \includepdf[pages={12-15}]{material/AEH_2019.pdf}
 
@@ -119,7 +132,7 @@ analog: für jeden endlichen Automaten $A$ gibt es eine spezifische reguläre Sp
 
 \subsubsection{Netztopologie}
 
-\underline{PN-Elemente} (s. \textit{BB AEH 2-6})
+\underline{PN-Elemente} \beiblatt{2-6}
 
 \begin{tabularx}{0.9\linewidth}{p{2.1cm}p{0.1cm}X}
 	Stellen & $\mathrel{\hat{=}}$ & Zustände \\
@@ -129,7 +142,6 @@ analog: für jeden endlichen Automaten $A$ gibt es eine spezifische reguläre Sp
 \end{tabularx}
 
 \underline{Beispiel:}
-
 
 \begin{subequations}
 	\begin{align}
@@ -143,10 +155,22 @@ analog: für jeden endlichen Automaten $A$ gibt es eine spezifische reguläre Sp
 \end{subequations}
 
 
-für Dynamik (siehe Abschnitt~\ref{sec:netzdynamik}) Kennzeichnung von bestimmten PN-Bereichen sinnvoll (s. \textit{BB AEH 2-7})
+für Dynamik (siehe Abschnitt~\ref{sec:netzdynamik}) Kennzeichnung von bestimmten PN-Bereichen sinnvoll \beiblatt{2-7}
 
 \underline{Beispiel: }
-%TODO Abb.
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.3\textwidth]{img/2019_05_06/abb4.tikz}
+\end{figure}
+
+\begin{align}
+	\bullet s_1 &= \{\} = \bullet s_2 \\
+	s_1 \bullet &= \{t_1\} = s_2 \bullet \\
+	\bullet s_3 &= \{t_3\} \\
+	s_3 \bullet &= \{\} \\
+	\bullet t_1 &= \{s_1,\, s_2\} \\
+	t_1 \bullet &= \{s_3\}
+\end{align}
 
 \includepdf[pages={16 - 17}]{material/AEH_2019.pdf}

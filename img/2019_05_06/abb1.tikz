@@ -1,0 +1,10 @@
+\begin{tikzpicture}
+\node[draw, circle,minimum size=1cm] (1) at (0,0) {1}; 
+\node[draw, circle,minimum size=1cm] (2) at (4,2) {2};
+\node[draw, circle,minimum size=1cm] (3) at (4,-2) {3};
+
+\draw (1) edge[bend left,-latex] node [left,anchor=south,align=center] {\textcolor{green}{$e_1$}\\\textcolor{blue}{$e_1$}\\\textcolor{red}{$p=0.3$}\\} (2);
+\draw (1) edge[bend right,-latex] node [left,anchor=north,align=center] {\textcolor{green}{$e_2$}\\\textcolor{blue}{$e_2$}\\\textcolor{red}{$p=0.7$}} (3);
+
+
+\end{tikzpicture}

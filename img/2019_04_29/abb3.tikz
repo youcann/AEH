@@ -1,0 +1,13 @@
+\begin{tikzpicture}
+
+\node[draw, circle,minimum size=2.5cm] (1) at (0,0) {$h<h_1$}; 
+\node[draw, circle,minimum size=2.5cm] (2) at (4,0) {$h_1\le h \le h_2$};
+\node[draw, circle,minimum size=2.5cm] (3) at (8,0) {$h>h_2$};
+
+\draw (1) edge[bend right,-latex] node [left,anchor=north] {$e_a$} (2);
+\draw (2) edge[bend right,-latex] node [left,anchor=north] {$e_b$} (3);
+
+\draw (2) edge[bend right,-latex] node [left,anchor=south] {$\bar{e_a}$} (1);
+\draw (3) edge[bend right,-latex] node [left,anchor=south] {$\bar{e_b}$} (2);
+
+\end{tikzpicture}
