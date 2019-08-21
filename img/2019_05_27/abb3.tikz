@@ -1,0 +1,20 @@
+\begin{tikzpicture}
+\draw[-{Latex[length=3mm]}] (0,0) -- (8,0);
+\draw[-{Latex[length=3mm]}] (0,0) -- (0,8);
+\node[anchor=west,fill=white] (a) at (0.2,7.8) {$x_2$};
+\node[anchor=south] (t) at (7.8,0.2) {$x_1$};
+\node[anchor=east] () at (0,5) {$x_{2,max}$};
+\node[anchor=north] () at (5,0) {$x_{1,max}$};
+
+\draw[dashed, gray!80] (0,5) --(8,5);
+\draw[dashed, gray!80] (5,0) --(5,8);
+
+\node[draw,circle] (1) at (2.5,2.5) {1};
+\node[draw,circle] (2) at (2.5,7.5) {2};
+\node[draw,circle] (3) at (7.5,2.5) {3};
+\node[draw,circle] (4) at (7.5,7.5) {4};
+
+\draw (1) edge[->,bend left] node[fill=white,very near start,anchor=east,xshift=-0.5cm] {$x_2 \ge x_{2,max}$} (2);
+\draw (2) edge[->,bend left] node[fill=white,very near start,anchor=west,xshift=0.5cm] {$x_2 < x_{2,max}$} (1);
+	
+\end{tikzpicture}

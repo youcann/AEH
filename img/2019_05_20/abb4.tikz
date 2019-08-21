@@ -42,6 +42,6 @@
 \draw (s5) edge[,->,out=-90,in=0]  (t5);
 \draw (t5) edge[,->,out=180,in=-90]  (s4);
 
-\draw (s2) edge[,-*,out=-150,in=170]  (t4.north west);
+\draw (s2) edge[blue,-*,out=-150,in=170]  (t4.north west);
 
 \end{tikzpicture}

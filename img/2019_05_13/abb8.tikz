@@ -1,0 +1,58 @@
+\usetikzlibrary{positioning,fit,backgrounds,arrows,shapes,automata,petri,calc,bending}
+\tikzset{
+    place/.style={
+        circle,
+        thick,
+        minimum size=6mm,
+                draw
+    },
+    transitionV/.style={
+        rectangle,
+        thick,
+        fill=black,
+        minimum height=6mm,
+        inner xsep=1pt
+    }
+}
+\begin{tikzpicture}[]
+%\draw[gray!30] (0,-3) grid (12,3);
+%\node[gray!50] at (0,0) {0};
+
+\node [place,colored tokens={},label=above:$$] (p1) at (0,1){};
+\node [place,colored tokens={},label=above:$$] (p2) at (2,1){};
+\node [place,colored tokens={},label=above:$$] (p3) at (4,2){};
+\node [place,colored tokens={},label=above:$$] (p4) at (4,0){};
+\node [place,colored tokens={},label=above:$$] (p5) at (6,2){};
+\node [place,colored tokens={},label=above:$$] (p6) at (8,1){};
+
+
+\node [transitionV,label=above:$$] (t1) at (1,1){};
+\node [transitionV,label=above:$$] (t2) at (3,2){};
+\node [transitionV,label=above:$$] (t3) at (3,0){};
+\node [transitionV,label=above:$$] (t4) at (5,2){};
+\node [transitionV,label=above:$$] (t5) at (5,0){};
+\node [transitionV,label=above:$$] (t6) at (7,2){};
+
+
+
+\draw (p1) edge[->] node[below] {$$} (t1);
+\draw (t1) edge[->] node[below] {$$} (p2);
+\draw (p2) edge[->] node[below] {$$} (t2);
+\draw (p2) edge[->] node[below] {$$} (t3);
+\draw (t2) edge[->] node[below] {$$} (p3);
+\draw (p3) edge[->] node[below] {$$} (t4);
+\draw (t4) edge[->] node[below] {$$} (p5);
+\draw (p5) edge[->] node[below] {$$} (t6);
+\draw (t6) edge[->] node[below] {$$} (p6);
+\draw (t3) edge[->] node[below] {$$} (p4);
+\draw (p4) edge[->] node[below] {$$} (t5);
+\draw (t5) edge[->] node[below] {$$} (p6);
+\draw (p6) edge[->] node[below] {$$} +(1,0);
+
+\draw[decorate,decoration={brace,amplitude=10pt},xshift=-4pt,yshift=0pt]
+(3.5,-1) -- (2,-1) node [black,midway,anchor=north,yshift=-0.4cm] {Alternative};
+
+\draw[decorate,decoration={brace,amplitude=10pt},xshift=-4pt,yshift=0pt]
+(8.5,-1) -- (5,-1) node [black,midway,anchor=north,yshift=-0.4cm] {Begegnung};
+
+\end{tikzpicture}

@@ -6,7 +6,7 @@
 \node (C) [right=of B,circle,draw,align = center] {$M_2$\\$(0,2,0)$};
 \node (D) [below = of A,circle,draw,align = center] {$M_3$\\$(1,0,1)$};
 \node (E) [below = of B,circle,draw,align = center] {$M_4$\\$(0,1,1)$};
-\node (F) [below = of D,circle,draw,align = center] {$M_4$\\$(0,0,2)$};
+\node (F) [below = of D,circle,draw,align = center] {$M_5$\\$(0,0,2)$};
 
 \node (text) at (6, -6) {$E_N$};
 

@@ -1,0 +1,34 @@
+\usetikzlibrary{positioning,fit,backgrounds,arrows,shapes,automata,petri,calc,bending}
+\tikzset{
+    place/.style={
+        circle,
+        thick,
+        minimum size=6mm,
+                draw
+    },
+    transitionV/.style={
+        rectangle,
+        thick,
+        fill=black,
+        minimum height=6mm,
+        inner xsep=1pt
+    }
+}
+\begin{tikzpicture}[]
+%\draw[gray!30] (0,-3) grid (12,3);
+%\node[gray!50] at (0,0) {0};
+
+\node [place,colored tokens={},label=above:$$] (p1) at (0,0){};
+
+\node [transitionV,label=above:$$,rotate=90] (t1) at (2,0){};
+
+
+\draw (p1) edge[->, bend left, in=90, out=60] node[below] {$$} (t1.east);
+\draw (t1.west) edge[->, bend left, in=120, out=90] node[below] {$$} (p1);
+\draw (-1,1) edge[->] node[below] {$$} (p1);
+\draw (-1,-1) edge[->] node[below] {$$} (p1);
+
+\draw[red] (0.5,1) -- (1.5,-1);
+\draw[red,yscale=-1] (0.5,1) -- (1.5,-1);
+
+\end{tikzpicture}

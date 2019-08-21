@@ -1,0 +1,43 @@
+\usetikzlibrary{positioning,fit,backgrounds,arrows,shapes,automata,petri,calc,bending}
+\tikzset{
+    place/.style={
+        circle,
+        thick,
+        minimum size=6mm,
+                draw
+    },
+    transitionV/.style={
+        rectangle,
+        thick,
+        fill=black,
+        minimum height=6mm,
+        inner xsep=1pt
+    }
+}
+\begin{tikzpicture}[xscale=2]
+%\draw[gray!30] (0,-3) grid (12,3);
+%\node[gray!50] at (0,0) {0};
+
+\node [place,colored tokens={black},label=above:$s_1$] (p1) at (0,2){};
+\node [place,colored tokens={},label=above:$s_2$] (p2) at (6,2){};
+\node [blue,place,colored tokens={},label=above:\textcolor{blue}{$s_3$}] (p3) at (2,2){};
+\node [blue,place,colored tokens={},label=above:\textcolor{blue}{$s_4$}] (p4) at (4,2){};
+
+\node [transitionV,label=above:$t_1$] (t1) at (3,4){};
+\node [transitionV,label=above:$t_2$] (t2) at (3,0){};
+\node [transitionV,label=above:$t_3$] (t3) at (3,-3){};
+
+\draw (p1) edge[->, in=180, out=70] node[below] {$$} (t1);
+\draw (p1) edge[->] node[below] {$$} (t2);
+\draw (t1) edge[->, in=110, out=-0] node[below] {$$} (p2);
+\draw (t2) edge[->] node[below] {$$} (p2);
+\draw (p2) edge[->, in=0, out=-90] node[below] {$$} (t3);
+\draw (t3) edge[->, out=180, in=-90] node[below] {$$} (p1);
+
+\draw (t1) edge[->,blue] node[below] {$$} (p4);
+\draw (p4) edge[->,blue] node[below] {$$} (t2);
+\draw (t2) edge[->,blue] node[below] {$$} (p3);
+\draw (p3) edge[->,blue] node[below] {$$} (t1);
+
+
+\end{tikzpicture}

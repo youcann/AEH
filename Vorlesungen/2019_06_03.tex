@@ -1,22 +1,13 @@
 \marginpar{VL am 03.06.19}
 \begin{enumerate}
-	\item \underline{Hinzufügen zusätzlicher (normaler) Kanten} \beiblatt{3-2 unten}
-	%TODO Abb.
-	
-	\properparagraph{Kennzeichen:}
-	\begin{itemize}
-		\item Verknüpfungen unübersichtlich
-		\item Schleifenbildung
-		\item Ursache/Folgen-Kopplung
-	\end{itemize}
-
+	\setcounter{enumi}{1}
 	\item \underline{Verwenden von Test-/Inhibitorkanten}
 	\beiblatt{3-3 oben}
-	%TODO Abb
+	%TODO beiblatt Abb
 	
 	\properparagraph{Kennzeichen:}
 	\begin{itemize}
-		\item Verknüpfungen unübersichtlich
+		\item Verknüpfungen übersichtlicher
 		\item keine Schleifen
 		\item Ursache/Folge-Kopplung
 		\item Spezialkanten vorhanden
@@ -24,7 +15,7 @@
 	
 	\item \underline{Modellierung als NCE-System}
 	\beiblatt{3-3 unten}
-	%TODO Abb.
+	%TODO beiblatt Abb.
 	
 	\properparagraph{Kennzeichen:}
 	\begin{itemize}
@@ -129,7 +120,26 @@ Erreichbarkeit: \beiblatt{4-5}
 
 also: Erreichbarkeitsgraph $E_N$: grafische Übersicht über alle von $M_0$ (über anwendbare Schaltsequenzen) erreichbare Markierungen.
 
-%TODO Abb.
+\properparagraph{Beispiel:}
+
+\begin{equation}
+	\wbar{K} = \m{2\\2\\2}, \qquad M_0 = (2,\,0,\,0)
+\end{equation}
+
+\begin{figure}[H]
+	\centering
+	\subfloat[PN]{\includegraphics[width=0.3\textwidth]{img/2019_06_03/abb1.tikz}} 
+	\qquad 
+	\subfloat[$E_N$]{\includegraphics[width=0.6\textwidth]{img/2019_06_03/abb2.tikz}}
+\end{figure}
+
+ablesbar: XXX Pfade im $E_N$: mögliche Konflikte zwischen Transitionen möglich 
+
+im Beispiel:
+\begin{itemize}
+	\item Bei $M_3$: Konflikt zwischen $t_1$ und $t_2$
+	\item Bei $M_3$: Kein Konflikt zwischen $t_1$ und $t_3$
+\end{itemize}
 
 
 

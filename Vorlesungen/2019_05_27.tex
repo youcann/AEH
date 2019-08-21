@@ -26,7 +26,10 @@ Ampelanlage \beiblatt{2-18}
 
 Verschiedene Ableitungen von DES-Modellen durch Abstraktion denkbar:
 
-%TODO Abb.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{img/2019_05_27/abb2.tikz}
+\end{figure}
 
 hier: Unterscheidung
 \begin{enumerate}
@@ -41,14 +44,43 @@ jeweils an exemplarischen Prozessen vorgeführt.
 	\item Festlegung von Zustandsgrößen \beiblatt{1-5} als prozessrelevante Größen
 	\item Bestimmung der diskreten Werte der Zustandsgrößen mit Ereignisdefinition ($\hat{=}$ Zustandsänderungen (extern/autonom))\\
 	(falls nicht unmittelbar vorhanden: Abstraktion durch Partitionierung des kontinuierlichen Zustandsraums in Hyperkuben)
-	%TODO Abb
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.5\textwidth]{img/2019_05_27/abb3.tikz}
+	\end{figure}
 \end{itemize}
 
 \properparagraph{Technisches Beispiel:} DES-Modellierung einer Tankbefüllung \beiblatt{3-1}
 
 \subsubsection{Tankbefüllung: Modellierung als Automat}
 
-%TODO Abb
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{img/2019_05_27/abb4.tikz}
+\end{figure}
+
+\begin{itemize}
+	\item Kontinuierliche Zustände
+	\begin{itemize}
+		\item Füllhöhe $h$
+		\item Füllhöhenänderung $\dot{h}$
+	\end{itemize}
+	\item \textcolor{red}{Zustände}
+	\begin{itemize}
+		\item $x_0$: Tank leer
+		\item $x_1$: Tank mittel und steigend
+		\item $x_2$: Tank mittel und konstant
+		\item $x_3$: Tank voll
+	\end{itemize}
+	\item \textcolor{blue}{Ereignisse}
+	\begin{itemize}
+		\item $e_1$: Ventil auf 
+		\item $e_2$: Ventil zu
+		\item $e_3$: $a=1$ ($h \ge h_{max}$)
+	\end{itemize}
+\end{itemize}
+\beiblatt{3-1}
 
 \properparagraph{Kennzeichen}
 \begin{itemize}
@@ -62,5 +94,19 @@ Ansatz: modularer Aufbau mit Teilnetzen (Ventil berücksichtigt) \beiblatt{3-2 o
 
 Modulkopplung auf unterschiedliche Arten möglich:
 
+\begin{enumerate}
+	\item \underline{Hinzufügen zusätzlicher (normaler) Kanten}
+	
+	\beiblatt{3-2 unten}
+	
+	%TODO beiblatt abb
+	\includepdf[pages={30 - 31}]{material/AEH_2019.pdf}
+	
+	\properparagraph{Kennzeichen:}
+	\begin{itemize}
+		\item Verknüpfungen unübersichtlich
+		\item Schleifenbildung
+		\item Ursache/Folgen-Kopplung
+	\end{itemize}
+\end{enumerate}
 
-\includepdf[pages={30 - 31}]{material/AEH_2019.pdf}

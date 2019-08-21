@@ -1,0 +1,49 @@
+\begin{tikzpicture}
+\draw[-{Latex[length=3mm]}] (-1.5,0) -- (12,0);
+\draw[-{Latex[length=3mm]}] (0,-1.5) -- (0,8);
+\node[anchor=west,fill=white] (a) at (0.2,7.8) {$\dot{h}$};
+\node[anchor=south] (t) at (11.8,0.2) {$h$};
+\node[anchor=north] () at (7,-0.2) {$h_{max}$};
+\draw (7,-0.2) -- +(0,0.4);
+
+
+\node[draw,circle,green,minimum size=1cm] (p1) at (0,0) {};
+\node[draw,circle,green,minimum size=1cm] (p2) at (4,0) {};
+\node[draw,circle,green,minimum size=1cm] (p3) at (10,0) {};
+\node[draw,circle,green,minimum size=1cm,label={[red,yshift=2mm]above:\textcolor{red}{transienter Zustand}}] (p4) at (0,6) {};
+\node[draw,circle,green,minimum size=1cm] (p5) at (4,6) {};
+\node[draw,circle,green,minimum size=1cm] (p6) at (10,6) {};
+
+\node[draw,circle,red,minimum size=1.5cm,label={[red,fill=white]below:$x_0$}] (1) at (0,0) {};
+\node[draw,circle,red,minimum size=1.5cm,label={[red]below:$x_2$}] (2) at (4,0) {};
+\node[draw,circle,red,minimum size=1.5cm,label={[red]below:$x_1$}] (5) at (4,6) {};
+\draw[rounded corners=25, red] (9, -1) rectangle (11,7) {};
+\node[label={[red]below:$x_3$}] () at (10,-1) {};
+
+
+\draw (1) edge[-{Stealth[length=4mm]}, bend left,red, dashed] node[] {$$} (p4);
+\draw (p4) edge[-{Stealth[length=4mm]}, bend left,red, dashed] node[] {$$} (5);
+\draw (1) edge[-{Stealth[length=4mm]},blue,out=-30, in=-120,looseness=5] node[fill=white] {$e_2$} (1);
+\draw (2) edge[-{Stealth[length=4mm]},blue,out=-30, in=-120,looseness=5] node[fill=white] {$e_2$} (2);
+\draw (5) edge[-{Stealth[length=4mm]},blue,out=30, in=120,looseness=5] node[fill=white] {$e_1$} (5);
+\draw (1) edge[-{Stealth[length=4mm]},blue,bend left] node[fill=white] {$e_1$} (5);
+\draw (2) edge[-{Stealth[length=4mm]},blue,bend angle=20, bend left] node[fill=white] {$e_1$} (5);
+\draw (5) edge[-{Stealth[length=4mm]},blue,bend angle=20, bend left] node[fill=white] {$e_2$} (2);
+\draw (5) edge[-{Stealth[length=4mm]},blue,] node[fill=white] {$e_3$} (p6);
+\draw (p3) edge[-{Stealth[length=4mm]},blue, bend angle=20, bend left] node[fill=white] {$e_1$} (p6);
+\draw (p6) edge[-{Stealth[length=4mm]},blue, bend angle=20, bend left] node[fill=white] {$e_2$} (p3);
+
+\draw (9.5,7) edge[-{Stealth[length=4mm]},blue, bend left, in=30, out=120,looseness=3] node[fill=white] {$e_1$} (10.5,7);
+\draw (9.2,7) edge[-{Stealth[length=4mm]},blue, bend left, in=40, out=120,looseness=4] node[fill=white] {$e_2$} (10.9,6.8);
+
+\draw[decoration={brace,mirror,raise=5pt,amplitude=15pt},decorate] (0.5,-3) -- node[below=30pt,align=center] {mittel\\($0<h<h_{max}$)} (6.8,-3);
+\draw[decoration={brace,mirror,raise=5pt,amplitude=15pt},decorate] (7.2,-3) -- node[below=30pt,align=center] {voll\\($h>h_{max}$)} (12,-3);
+\draw[decoration={brace,raise=5pt,amplitude=15pt},decorate] (-2,0.5) -- node[left=30pt,align=center] {Pegel steigend\\($\dot{h}>0$)} (-2,7);
+\node[align=right,anchor=east] at (-1.5,0) {konstant ($\dot{h}=0$)};
+\node[align=center,rotate=-90] at (0,-4) {leer ($h=0$)};
+
+\node[draw,align=left, anchor=west] at (-5,-4) {\textcolor{green}{Partitionierung}\\\textcolor{red}{Zustände}};
+
+
+	
+\end{tikzpicture}

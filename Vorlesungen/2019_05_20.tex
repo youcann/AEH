@@ -2,9 +2,9 @@
 \subsubsection{Algebraische Netzbeschreibung}
 Basis für die PN-Darstellung in Rechner und die PN-Analyse(s. Kapitel 4).
 
-\underline{Begriffe:} (s. BB AEH2-11, AEH2-12)
+\underline{Begriffe:} \beiblatt{2-11, 2-12}
 
-\beispiel
+\properparagraph{Beispiel}
 
 \begin{figure}[H]
 	\centering
@@ -38,7 +38,7 @@ Folgemarkierung: $\ubar{m}(1)=\ubar{m}(0) + \ubar{N} \ubar{v}(1) = \m{1\\0}+\m{3
 \subsubsection{Darstellung von Nebenläufigkeit}
 Untersuchung der Modellierungstransparenz bei Nebenläufigkeiten: PN $\leftrightarrow$ Automat.
 
-\beispiel Zwei Prozesse
+\properparagraph{Beispiel: Zwei Prozesse}
 
 \begin{tabular}{l|l|l}
 	 & Zustände & Ereignisse \\
@@ -61,22 +61,22 @@ Fazit: PN aufgrund der verteilten Zustandsinformation (Markierung) und den trans
 \subsubsection{Zeitbewertung}
 Bei PN erforderlich, falls neben kausalen Ablauf auch zeitlicher Zusammenhang relevant. 
 
-Prinzip: (s. BB AEH 2-14)\\
+Prinzip: \beiblatt{2-14}\\
 (Sonderfall: Ereignisse nicht zeitbewertet: $\tau_R=0$, $\tau_L=\infty$)
 
-\beispiel Kleben von Teilen
+\properparagraph{Beispiel: Kleben von Teilen}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[]{img/2019_05_20/abb3.tikz}
 \end{figure}
 
-Weitere Beispiele (s. BB AEH 2-15)
+Weitere Beispiele \beiblatt{2-15}
 
 \subsubsection{Test- und Inhibitorkanten}
-Spezielle Kanten zur Einbringung zusätzlicher Bedingungen in die Dynamik ohne Markenfluss beim Schaltvorgang (s. BB AEH 2-16)
+Spezielle Kanten zur Einbringung zusätzlicher Bedingungen in die Dynamik ohne Markenfluss beim Schaltvorgang \beiblatt{2-16}
 
-\beispiel Synchronisation ansonsten unabhängiger Prozesse
+\properparagraph{Beispiel: Synchronisation ansonsten unabhängiger Prozesse} 
 \begin{figure}[H]
 	\centering
 	\includegraphics[]{img/2019_05_20/abb4.tikz}
@@ -88,7 +88,6 @@ Vorteil: Übersichtliche Darstellung\\
 Nachteil: Analyse erschwert
 
 \includepdf[pages={21 - 26}]{material/AEH_2019.pdf}
-
 
 \subsection{Netz - Condition/Event - Systeme}
 \underline{PN-Schwächen:}
@@ -121,10 +120,10 @@ Konzept zur transparenten Kopplung von DES-Modellen über zwei spezielle Signalt
 
 	Signalflussbild: \begin{tikzpicture}\draw[-Stealth] (0,0) -- (0.90,0) -- (0.95,0.1) -- (1.05,-0.1) -- (1.1,0) -- (2,0);\end{tikzpicture}
 	
-	\properparagraph{Blockschaltbild eines Moduls}
+	Blockschaltbild eines Moduls:
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=0.5\textwidth]{img/2019_05_20/abb8.tikz}
+		\includegraphics[]{img/2019_05_20/abb8.tikz}
 	\end{figure}
 
 	hier: DES-Modellierung im Modul als PN $\Rightarrow$ Netz-Condition/Event-Systeme (NCE)
