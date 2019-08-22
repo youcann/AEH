@@ -12,4 +12,15 @@
 
 \node[align=center] (prob) at (-2.5,5) {\textcolor{red}{Zentrales Problem:}\\\textcolor{red}{Ereignisdetektion}};
 
+\draw[] (-7,6) -- (-4,3);
+\node[align=center] (trig) at (-7,6.5) {Triggermenge};
+
+\draw[] (-7,3) .. controls (-6,5) .. (-4.8,5) 
+node[pos=0.2,circle,fill=black, inner sep=0, minimum size=2mm] {}
+node[pos=0.4,circle,fill=black, inner sep=0, minimum size=2mm,label={[xshift=-3mm]above:$x_{k}$}] {}
+node[pos=0.7,circle,fill=black, inner sep=0, minimum size=2mm,label={above:$x_{k+1}$}] {}
+node[pos=0.9,circle,fill=black, inner sep=0, minimum size=2mm] {};
+
+\node[align=right] (trig) at (-7,2.5) {Iteratives \\Auffinden von $x_s$ erforderlich!};
+
 \end{circuitikz}

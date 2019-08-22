@@ -1,0 +1,17 @@
+\usetikzlibrary{snakes}
+\begin{tikzpicture} 
+\node[align=center] (trig) at (10,9.5) {Triggermenge};
+
+\draw[] (0,0) .. controls (4,7) .. (10,9) ;
+
+\node[circle, fill,inner sep=0,minimum size=2mm,label=above:$x_0$] (o) at (1,8) {};
+\node[circle, fill,inner sep=0,minimum size=2mm,label=above:$x_e$] (e) at (8,2) {};
+
+\draw[snake=coil,segment aspect=0,red] (o) -- (11,7);
+\draw[snake=coil,segment aspect=0,red] (o) -- (2,-1);
+
+\draw[snake=coil,segment aspect=0,blue] (e) -- (2,10);
+\draw[snake=coil,segment aspect=0,blue] (e) -- (0,5);
+
+
+\end{tikzpicture}
