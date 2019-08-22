@@ -1,0 +1,12 @@
+\begin{circuitikz} 
+\node[align=center] (0) at (0,6) {unten};
+\node[align=center] (1) at (0,4) {auf};
+\node[align=center] (2) at (0,2) {oben};
+\node[align=center] (3) at (0,0) {ab};
+
+\draw[->] (0) -- node[anchor=west] {Start} (1);
+\draw[->] (1) -- node[anchor=west] {} (2);
+\draw[->] (2) -- node[anchor=west] {Zeit} (3);
+\draw[->] (3) -| (2,3) |- (0);
+
+\end{circuitikz}

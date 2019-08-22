@@ -1,0 +1,21 @@
+\begin{tikzpicture}
+
+\node[draw,rectangle,minimum width=4cm,minimum height=3cm,align=center] at (0,0) {Schaltnetz/\\Schaltwerk};
+
+\draw[-{Latex[length=3mm]}] (-4,1) -- (-2,1);
+\draw[-{Latex[length=3mm]}] (-4,-1) -- (-2,-1);
+
+\draw[-{Latex[length=3mm]}] (2,1) -- (4,1);
+\draw[-{Latex[length=3mm]}] (2,-1) -- (4,-1);
+
+\node[anchor=east] at(-4,1) {$E_1$};
+\node[anchor=east] at(-4,0) {$\vdots$};
+\node[anchor=east] at(-4,-1) {$E_n$};
+
+\node[anchor=west] at(4,1) {$A_1$};
+\node[anchor=west] at(4,0) {$\vdots$};
+\node[anchor=west] at(4,-1) {$A_n$};
+
+
+
+\end{tikzpicture}

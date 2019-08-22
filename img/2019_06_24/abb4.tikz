@@ -1,0 +1,25 @@
+\begin{tikzpicture}[]
+\node[draw, circle, align=center, minimum size=1.5cm] (0) at (2,8) {$\bar{m}_0$};
+\node[draw, circle, align=center, minimum size=1.5cm] (1) at (-1,5.5) {$\bar{m}_1$};
+\node[draw, circle, align=center, minimum size=1.5cm] (2) at (5,5.5) {$\bar{m}_2$};
+\node[draw, circle, align=center, minimum size=1.5cm] (3) at (-1,2.5) {$\bar{m}_3$};
+\node[draw, circle, align=center, minimum size=1.5cm] (4) at (5,2.5) {$\bar{m}_4$};
+\node[draw, circle, align=center, minimum size=1.5cm] (5) at (2,0) {$\bar{m}_5$};
+
+
+\draw[->] (0) to node[above,anchor=south east] {$t_1$} (1);
+\draw[->] (0) to node[above,anchor=south west] {$t_4$} (2);
+\draw[->] (1) to node[above,anchor=east] {$t_2$} (3);
+\draw[->] (2) to node[above,anchor=west] {$t_2$} (4);
+\draw[->] (3) to node[above,anchor=south west] {$t_4$} (5);
+\draw[->] (4) to node[above,anchor=south east] {$t_1$} (5);
+\draw[->, bend left, looseness=1.5,out=90, in=90] (5) to node[above,anchor=west] {$t_4$} (1);
+\draw[->, bend right, looseness=1.5,out=-90, in=-90] (4) to node[above,anchor=east] {$t_3$} (0);
+
+\draw [red] plot [smooth cycle] coordinates {(2+2,0-2) (-1-4,2.5-1) (-1.5+1,5.5+1)};
+\draw [blue] plot [smooth cycle] coordinates {(2-2,8+2) (5+4,5.5+1) (5-1,2.5-1.25)};
+
+\node at (-4,0) {\textcolor{red}{$K_2^k$}};
+\node at (4,9.8) {\textcolor{blue}{$K_1^k$}};
+
+\end{tikzpicture}

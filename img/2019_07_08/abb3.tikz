@@ -1,0 +1,39 @@
+\usetikzlibrary{positioning,fit,backgrounds,arrows,shapes,automata,petri,calc,bending}
+\tikzset{
+    place/.style={
+        circle,
+        thick,
+        minimum size=6mm,
+                draw
+    },
+    transitionV/.style={
+        rectangle,
+        thick,
+        fill=black,
+        minimum height=6mm,
+        inner xsep=1pt
+    }
+}
+\begin{tikzpicture}[]
+%\draw[gray!30] (0,-3) grid (12,3);
+%\node[gray!50] at (0,0) {0};
+
+\node [place,tokens=0,label={[]above:$$}] (s1) at (0,2){};
+\node [place,tokens=0,label={[]above:$$}] (s2) at (0,-2){};
+
+\node [transitionV,label=above:$t_1$,rotate=90] (t1) at (0,0){};
+
+\draw (s1) edge[->]  (t1);
+\draw (t1) edge[->]  (s2);
+\draw (s1) edge[->] node[align=center, anchor=south] {Wirkung\\(Ausgabe) u} +(3,0);
+\draw (t1) edge[<-] node[align=center, anchor=south] {Weiterschalt-\\bedingung\\$f(x)$} +(3,0);
+\draw (t1) edge[<-] node[align=center, anchor=north] {(boolesch)} +(3,0);
+\draw (s2) edge[->] node[align=center, anchor=south] {Wirkung\\(Ausgabe) u} +(3,0);
+
+
+
+
+\node[align=center,draw,rectangle,minimum height=5cm,minimum width=2cm] at (4,0) {Prozess\\$\underaccent{\bar}{x}$};
+
+
+\end{tikzpicture}

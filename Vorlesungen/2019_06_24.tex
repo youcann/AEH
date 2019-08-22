@@ -1,5 +1,5 @@
 \marginpar{VL am 24.06.19}
-$E_G$:
+\properparagraph{$E_G$:}
 
 \begin{figure}[H]
 	\centering
@@ -9,15 +9,223 @@ $E_G$:
 \begin{equation}
 	A^\ast=
 	\begin{bmatrix}
-	1 & 0 & 0 & 0 \\
-	1 & 1 & 1 & 1 \\
-	1 & 0 & 1 & 1 \\
+	\textcolor{red}{1} & 0 & 0 & 0 \\
+	1 & \textcolor{blue}{1} & 1 & 1 \\
+	1 & 0 & \textcolor{green}{1} & 1 \\
 	1 & 0 & 1 & 1 \\
 	\end{bmatrix}
 \end{equation}
 
 \properparagraph{Auswertung:}
+%TODO k=K, was ist was?
 
 \begin{enumerate}[label=(\alph*)]
-\item 
+	\item \textcolor{red}{$a_{11}^\ast =1$}, $a_{1i}^\ast = 0 \neq 1 = a_{i1}^\ast: \circled{1}=K_1^k$
+	\item \textcolor{blue}{$a_{22}^\ast = 1$}, $a_{2i}^\ast = 1 \neq 0 = a_{i2}^\ast: \circled{2}=K_2^k$
+	\item \textcolor{green}{$a_{33}^\ast = 1$}, $a_{3i}^\ast = a_{i3}^\ast = 1: \circled{3}+\circled{4} = K_3^k$
+	\item $a_{21}^\ast=1$, $a_{12}^\ast=0: \circled{2} \rightarrow \circled{1}$
+	\item $a_{31}^\ast=1$, $a_{13}^\ast=0$, $a_{41}^\ast=1$, $a_{14}^\ast=0: \circled{3} \rightarrow \circled{1} \leftarrow \circled{4}$
+	\item $a_{23}^\ast=1$, $a_{32}^\ast=0$, $a_{24}^\ast=1$, $a_{42}^\ast=0: \circled{3} \leftarrow \circled{2} \rightarrow \circled{4}$
 \end{enumerate}
+
+\properparagraph{$E_G^k:$}
+\begin{figure}[H]
+	\centering
+	\includegraphics{img/2019_06_24/abb2.tikz}
+\end{figure}
+
+\properparagraph{Beispiel zur grafischen KondensXXXermittlung}
+\beiblatt{4-4}
+
+$E_N$ im Beispiel-Netzwerk
+
+\underline{PN:}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{img/2019_06_24/abb3.tikz}
+\end{figure}
+
+\underline{$E_N$:}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[]{img/2019_06_24/abb4.tikz}
+\end{figure}
+
+
+\underline{$E_N^k$:}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[]{img/2019_06_24/abb5.tikz}
+\end{figure}
+
+also: PN so nicht reversibel, da $E_N$ nicht stark zusammenhängend.
+
+\underline{Lebendigkeit}
+\beiblatt{4-7}
+
+In Senke $K_2^k$ Transition $t_1$ nicht enthalten $\Rightarrow$ PN nicht lebendig.
+
+\subsubsection{Algebraische Analyse mit S- und T-Invarianten}
+Ausgangspunkt: Algebraische PN-Beschreibung \beiblatt{2-12}
+
+\begin{equation}\label{eq:mkplus1}
+	\wbar{m}(k+1) = \wbar{m}(k) + \wbar{N} v(k+1)
+\end{equation}
+
+\underline{Invarianten:} Kennzeichnen Mengen von PN-Elementen, die unabhängig (invariant) von der Anfangsmarkierung aufgrund der PN-Topologie bestimmte Eigenschaften besitzen.
+
+\properparagraph{1) S-Invarianten}
+Definition \beiblatt{4-8}
+
+Herleitung: aus (\ref{eq:mkplus1})
+
+Annahme: $\wbar{i}_s$ sei S-Invariante
+
+\begin{equation}
+	(\wbar{m}(k+1)-\wbar{m}(k))^T \wbar{i}_s= \underbrace{(\wbar{N} \cdot \wbar{v}(k+1))^T}_{\wbar{v}^T(k+1) \underbrace{\wbar{N}^T \wbar{i}_s}_{=0 \text{ (Def.)}}}
+\end{equation}
+
+Für jede S-Invariante $i_S$ gilt also:
+\begin{equation}
+	\wbar{m}(k+1)^T \wbar{i}_s = \wbar{m}(k)^T \wbar{i}_s, \qquad \forall k=0,\,1,\,2,\,\ldots
+\end{equation}
+
+\begin{equation}
+\Rightarrow \wbar{m}(k)^T \wbar{i}_s = \wbar{m}(0)^T \wbar{i}_s = \text{const.}
+\end{equation}
+
+\underline{Beispiel:}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{img/2019_06_24/abb6.tikz}
+\end{figure}
+
+\begin{equation}
+	\wbar{N} = 
+	\m{
+	-1 & 1 \\
+	-1 & 1 \\
+	1 & -1 	
+	}
+\end{equation}
+
+S-Invarianten:
+\begin{equation}
+	\wbar{N}^T \wbar{i}_s = 0 =
+	\m{
+	-1 & -1 & 1\\
+	1  &  1 & -1	
+	}
+	\m{
+	i_{s1}\\
+	i_{s2}\\
+	i_{s3}	
+	}
+\end{equation}
+
+\begin{align}
+	-i_{s1} - i_{s2} + i_{s3} &= 0\\
+	i_{s1} + i_{s2} - i_{s3}  &= 0
+\end{align}
+Linear abhängiges Gleichungssystem unterbestimmt (unendlich viele Lösungen)
+
+Ganzzahlige Lösungen gesucht, zum Beispiel:
+\begin{itemize}
+	\item $i_{s1}=0 \Rightarrow i_{s3}=i_{s2} \text{(z.B. zu 1 gewählt)}$
+	\begin{equation}
+		\wbar{i}_s^I = \m{0\\1\\1}
+	\end{equation}
+	\item $i_{s1}=1 \Rightarrow i_{s3}=i_{s2}+1 \text{(z.B. $i_{s2}=0$ gewählt)}$
+	\begin{equation}
+	\wbar{i}_s^{II} = \m{1\\0\\1}
+	\end{equation}
+\end{itemize}
+
+Bedeutung der S-Invarianten:
+
+Zum Beispiel $\wbar{i}_{s}^I$:
+\begin{equation}
+	\wbar{m}^T \cdot \wbar{i}_s^I = M(s_2) + M(s_3) = M_0(s2) + M_0(s_1) = 1 =\text{const} \qquad \forall k
+\end{equation}
+
+Analog $\wbar{i}_{s}^{II}$:
+\begin{equation}
+	M(s_1) + M(s_3) = 1 = \text{const} \qquad \forall k
+\end{equation}
+
+Anmerkung: Auch jede Linearkombination linear unabhängiger S-Invarianten ist S-Invariante:
+\begin{equation}
+	\wbar{i}_s = c_1 \, \wbar{i}_{s}^{I} + c_2 \, \wbar{i}_{s}^{I}
+\end{equation}
+
+Zum Beispiel ($c_1=1,\,c_2=-1$):
+\begin{equation}
+	\wbar{i}_{s}^{III} = \m{0\\1\\1} - \m{1\\0\\1} = \m{-1\\1\\0}
+\end{equation}
+
+\begin{equation}
+	\wbar{m}^T \wbar{i}_{s}^{III} = -M(s_1) + M(s_2) = 0
+\end{equation}
+d.h.
+\begin{equation}
+	M(s_1) = M(s_2), \qquad \forall k
+\end{equation}
+
+\underline{PN-Analyse mit S-Invarianten: Beschränktheit}
+\beiblatt{4-8}
+
+Beweis: Annahme $\wbar{i}_s > \wbar{0}$ existiert
+\begin{equation}
+	\Rightarrow \wbar{m}^T(k) \, \wbar{i}_s = \wbar{m}^T(0) \, \wbar{i}_s
+\end{equation}
+\begin{equation}
+	m_i(k) \, i_{s,i} \le \wbar{m}^T(0) \, \wbar{i}_s
+\end{equation}
+\begin{equation}
+	\Rightarrow m_i(k) \le \underbrace{\frac{\wbar{m}^T(0) \, \wbar{i}_s}{i_{s,i}}}_{K}
+\end{equation}
+
+Da für alle Stellen $s_i$ gültig $\Rightarrow$ Netz beschränkt!
+
+Zum Beispiel:
+\begin{equation}
+	\wbar{i}_s^{III} = \m{1\\1\\2} \ge 0 \qquad (c_1=c_2=1), \; (\wbar{m}_0^T=\m{0 &0 &1})
+\end{equation}
+
+\begin{align}
+M(s_1) & \le \frac{2}{1} = 2 \\[1em]
+M(s_2) & \le \frac{2}{1} = 2 \\[1em]
+M(s_3) & \le \frac{2}{2} = 1 
+\end{align}
+
+\properparagraph{2) T-Invarianten}
+Definition \beiblatt{4-8}
+
+Herleitung: aus (\ref{eq:mkplus1})
+
+Annahme: $\wbar{i}_T$ sei T-Invariante
+
+\begin{equation}
+	\wbar{m}(k+1) = \wbar{m}(0) + \wbar{N} \underbrace{\left( \wbar{v}(1) + \wbar{v}(2) + \ldots + \wbar{v}(k+1) \right)}_{\wbar{i}_T}
+\end{equation}
+
+\begin{equation}
+	\Rightarrow \wbar{m}(k+1) - \wbar{m}(0) = \underbrace{\wbar{N} \, \wbar{i}_T}_{=0}
+\end{equation}
+
+\begin{equation}
+	\Rightarrow \text{T-Invariante } \wbar{i}_T:\; \wbar{m}(k+1) = \wbar{m}(0) \qquad \forall k
+\end{equation}
+(nach gewisser Schaltsequenz $\wbar{N} \, \wbar{i}_T$)
+
+Beispiel \beiblatt{4-9, 4-10}
+
+PN-Analyse mit T-Invarianten: Reversibilität, Lebendigkeit \beiblatt{4-9}
+
+
+
+

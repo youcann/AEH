@@ -1,0 +1,14 @@
+\begin{circuitikz} 
+\draw[*-] (-1,6) -- (0,6);
+\draw[*-] (-1,0) -- (0,0);
+\draw (-1,5.5) edge[bend angle=10,bend right,->] node[anchor=east] {U} (-1,0.5);
+\draw (0,6) to[switch,l=$w_1$] (0,4);
+\draw (0,4) to[switch,l=$w_2$] (0,2);
+\draw (0,2) to[cute inductor] (0,0);
+
+\draw (3,0) to[switch] (3,2) -- (4,2) to[esource] (4,0) -- (3,0);
+
+\draw[dashed] (0.2,1) -- (2.8,1);
+\node[] at (4,1) {M};
+
+\end{circuitikz}

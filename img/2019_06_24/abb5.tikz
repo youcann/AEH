@@ -1,0 +1,7 @@
+\begin{tikzpicture}[]
+\node[draw, circle, align=center, minimum size=1.5cm,label={[]above:$K_2^k$}] (0) at (0,0) {$$};
+\node[draw, circle, align=center, minimum size=1.5cm,label={[]above:$K_1^k$}] (1) at (4,0) {$$};
+
+\draw[->] (1) to node[] {$$} (0);
+
+\end{tikzpicture}

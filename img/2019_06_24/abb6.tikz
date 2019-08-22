@@ -1,0 +1,38 @@
+\usetikzlibrary{positioning,fit,backgrounds,arrows,shapes,automata,petri,calc,bending}
+\tikzset{
+    place/.style={
+        circle,
+        thick,
+        minimum size=6mm,
+                draw
+    },
+    transitionV/.style={
+        rectangle,
+        thick,
+        fill=black,
+        minimum height=6mm,
+        inner xsep=1pt
+    }
+}
+\begin{tikzpicture}[]
+%\draw[gray!30] (0,-3) grid (12,3);
+%\node[gray!50] at (0,0) {0};
+
+\node [place,tokens=0,label={[]above:$s_1$}] (s1) at (0,0){};
+\node [place,tokens=0,label={[]above:$s_2$}] (s2) at (4,0){};
+\node [place,tokens=1,label={[]above:$s_3$}] (s3) at (8,0){};
+
+\node [transitionV,rotate=90,label=above:$t_1$] (t1) at (2,2){};
+\node [transitionV,rotate=90,label=above:$t_2$] (t2) at (2,-2){};
+
+\draw (s1) edge[->,shorten >=1mm]  (t1);
+\draw (s2) edge[->,shorten >=1mm]  (t1);
+\draw (t2) edge[->,shorten <=1mm]  (s1);
+\draw (t2) edge[->,shorten <=1mm]  (s2);
+\draw (t1) edge[->,shorten <=1mm,out=90,in=120]  (s3);
+\draw (s3) edge[->,shorten >=1mm,in=-90,out=-120]  (t2.west);
+
+\draw [blue] plot [smooth cycle,tension=0.8] coordinates {(3.25,0) (6,1.5) (8.75,0) (6,-1)};
+\draw [red] plot [smooth cycle,tension=0.8] coordinates {(0,1) (-1,0) (0,-1) (4,-1.5) (8,-1) (9,0) (8,1) (6,-0.5) (2,-0.5)};
+
+\end{tikzpicture}

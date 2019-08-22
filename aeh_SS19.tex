@@ -29,6 +29,8 @@
 \usepackage{pdfpages}
 \usepackage{textcomp} %for textarrow
 
+\usepackage[european]{circuitikz}
+
 \usepackage{siunitx}
 \sisetup{range-phrase=\ldots}
 
@@ -42,6 +44,9 @@
 
 %kluwe-specific specials
 \newcommand{\beispiel}{\underline{Beispiel:~}}
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+		\node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
 
 \usepackage{accents}
 \newcommand{\ubar}[1]{\underaccent{\bar}{#1}}
@@ -97,11 +102,11 @@
 %\input{Vorlesungen/2019_05_27.tex}
 %\input{Vorlesungen/2019_06_03.tex}
 %\input{Vorlesungen/2019_06_13.tex}
-\input{Vorlesungen/2019_06_24.tex}
+%\input{Vorlesungen/2019_06_24.tex}
 %\input{Vorlesungen/2019_07_01.tex}
 %\input{Vorlesungen/2019_07_08.tex}
 %\input{Vorlesungen/2019_07_15.tex}
-%\input{Vorlesungen/2019_07_22.tex}
+\input{Vorlesungen/2019_07_22.tex}
 
 \end{document}
 

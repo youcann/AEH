@@ -1,0 +1,15 @@
+\begin{circuitikz} 
+\node[align=center,minimum width=4cm, minimum height=2cm,draw, rectangle] (0) at (-2,8) {kontinuierliche\\Simulation};
+\node[align=center,minimum width=4cm, minimum height=2cm,draw, rectangle] (1) at (2,8) {diskrete\\Simulation};
+\node[align=center,minimum width=4cm, minimum height=2cm,draw, rectangle] (2) at (-2,0) {Parameter\\Neuinitialisierung};
+\node[align=center,minimum width=4cm, minimum height=2cm,draw, rectangle] (3) at (2,0) {Schaltvorgang};
+
+\node[align=center,minimum width=2cm, minimum height=2cm,draw, diamond] (diamond) at (0,4) {Ereignis?};
+
+\draw[->, very thick] (0,7) -- node[anchor=west] {} (diamond);
+\draw[->, very thick] (diamond) -- node[anchor=west] {ja} (0,1);
+\draw[->, very thick] (diamond) -| node[near start, anchor=south] {nein} (5,10) -| (0,9);
+
+\node[align=center] (prob) at (-2.5,5) {\textcolor{red}{Zentrales Problem:}\\\textcolor{red}{Ereignisdetektion}};
+
+\end{circuitikz}
